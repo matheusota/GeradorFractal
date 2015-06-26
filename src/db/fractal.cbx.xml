@@ -1,0 +1,10 @@
+<?xml version="1.0" ?>
+<LOG_ROOT>
+	<PROJECT NAME="fractal">
+		<CBX_INST_ENTRY INSTANCE_NAME="|fractal|constMem:memX|altsyncram:altsyncram_component" CBX_FILE_NAME="altsyncram_59p1.tdf"/>
+		<CBX_INST_ENTRY INSTANCE_NAME="|fractal|mandelbrot:math|lpm_mult:Mult1" CBX_FILE_NAME="mult_p1t.tdf"/>
+		<CBX_INST_ENTRY INSTANCE_NAME="|fractal|constMem:memY|altsyncram:altsyncram_component" CBX_FILE_NAME="altsyncram_59p1.tdf"/>
+		<CBX_INST_ENTRY INSTANCE_NAME="|fractal|mandelbrot:math|lpm_mult:Mult0" CBX_FILE_NAME="mult_p1t.tdf"/>
+		<CBX_INST_ENTRY INSTANCE_NAME="|fractal|mandelbrot:math|lpm_mult:Mult2" CBX_FILE_NAME="mult_p1t.tdf"/>
+	</PROJECT>
+</LOG_ROOT>

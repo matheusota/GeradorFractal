@@ -1,0 +1,8 @@
+
+State Machine - |fractal|control:ctrl|cur_state
+Name cur_state.Final cur_state.Write_Pixel_Wait cur_state.Write_Pixel cur_state.Write_Memory cur_state.Start 
+cur_state.Start 0 0 0 0 0 
+cur_state.Write_Memory 0 0 0 1 1 
+cur_state.Write_Pixel 0 0 1 0 1 
+cur_state.Write_Pixel_Wait 0 1 0 0 1 
+cur_state.Final 1 0 0 0 1 

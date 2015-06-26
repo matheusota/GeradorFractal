@@ -1,0 +1,1010 @@
+Classic Timing Analyzer report for fractal
+Wed Jun 24 20:23:33 2015
+Quartus II Version 9.1 Build 350 03/24/2010 Service Pack 2 SJ Web Edition
+
+
+---------------------
+; Table of Contents ;
+---------------------
+  1. Legal Notice
+  2. Timing Analyzer Summary
+  3. Timing Analyzer Settings
+  4. Clock Settings Summary
+  5. Parallel Compilation
+  6. Clock Setup: 'CLOCK_24[0]'
+  7. tsu
+  8. tco
+  9. th
+ 10. Timing Analyzer Messages
+
+
+
+----------------
+; Legal Notice ;
+----------------
+Copyright (C) 1991-2010 Altera Corporation
+Your use of Altera Corporation's design tools, logic functions 
+and other software and tools, and its AMPP partner logic 
+functions, and any output files from any of the foregoing 
+(including device programming or simulation files), and any 
+associated documentation or information are expressly subject 
+to the terms and conditions of the Altera Program License 
+Subscription Agreement, Altera MegaCore Function License 
+Agreement, or other applicable license agreement, including, 
+without limitation, that your use is for the sole purpose of 
+programming logic devices manufactured by Altera and sold by 
+Altera or its authorized distributors.  Please refer to the 
+applicable agreement for further details.
+
+
+
++-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Timing Analyzer Summary                                                                                                                                                                       ;
++------------------------------+-------+---------------+----------------------------------+------------------------+---------------------------------+-------------+-------------+--------------+
+; Type                         ; Slack ; Required Time ; Actual Time                      ; From                   ; To                              ; From Clock  ; To Clock    ; Failed Paths ;
++------------------------------+-------+---------------+----------------------------------+------------------------+---------------------------------+-------------+-------------+--------------+
+; Worst-case tsu               ; N/A   ; None          ; 8.427 ns                         ; KEY[3]                 ; control:ctrl|x_com_max[-21]     ; --          ; CLOCK_24[0] ; 0            ;
+; Worst-case tco               ; N/A   ; None          ; 12.088 ns                        ; mandelbrot:math|done   ; SRAM_ADDR[5]                    ; CLOCK_24[0] ; --          ; 0            ;
+; Worst-case th                ; N/A   ; None          ; -3.963 ns                        ; KEY[0]                 ; control:ctrl|edge:detector3|old ; --          ; CLOCK_24[0] ; 0            ;
+; Clock Setup: 'CLOCK_24[0]'   ; N/A   ; None          ; 38.10 MHz ( period = 26.248 ns ) ; mandelbrot:math|x[-28] ; mandelbrot:math|x[-32]          ; CLOCK_24[0] ; CLOCK_24[0] ; 0            ;
+; Total number of failed paths ;       ;               ;                                  ;                        ;                                 ;             ;             ; 0            ;
++------------------------------+-------+---------------+----------------------------------+------------------------+---------------------------------+-------------+-------------+--------------+
+
+
++-----------------------------------------------------------------------------------------------------------------------------------------------------+
+; Timing Analyzer Settings                                                                                                                            ;
++------------------------------------------------------------------------------------------------------+--------------------+------+----+-------------+
+; Option                                                                                               ; Setting            ; From ; To ; Entity Name ;
++------------------------------------------------------------------------------------------------------+--------------------+------+----+-------------+
+; Device Name                                                                                          ; EP2C20F484C7       ;      ;    ;             ;
+; Timing Models                                                                                        ; Final              ;      ;    ;             ;
+; Default hold multicycle                                                                              ; Same as Multicycle ;      ;    ;             ;
+; Cut paths between unrelated clock domains                                                            ; On                 ;      ;    ;             ;
+; Cut off read during write signal paths                                                               ; On                 ;      ;    ;             ;
+; Cut off feedback from I/O pins                                                                       ; On                 ;      ;    ;             ;
+; Report Combined Fast/Slow Timing                                                                     ; Off                ;      ;    ;             ;
+; Ignore Clock Settings                                                                                ; Off                ;      ;    ;             ;
+; Analyze latches as synchronous elements                                                              ; On                 ;      ;    ;             ;
+; Enable Recovery/Removal analysis                                                                     ; Off                ;      ;    ;             ;
+; Enable Clock Latency                                                                                 ; Off                ;      ;    ;             ;
+; Use TimeQuest Timing Analyzer                                                                        ; Off                ;      ;    ;             ;
+; Minimum Core Junction Temperature                                                                    ; 0                  ;      ;    ;             ;
+; Maximum Core Junction Temperature                                                                    ; 85                 ;      ;    ;             ;
+; Number of source nodes to report per destination node                                                ; 10                 ;      ;    ;             ;
+; Number of destination nodes to report                                                                ; 10                 ;      ;    ;             ;
+; Number of paths to report                                                                            ; 200                ;      ;    ;             ;
+; Report Minimum Timing Checks                                                                         ; Off                ;      ;    ;             ;
+; Use Fast Timing Models                                                                               ; Off                ;      ;    ;             ;
+; Report IO Paths Separately                                                                           ; Off                ;      ;    ;             ;
+; Perform Multicorner Analysis                                                                         ; On                 ;      ;    ;             ;
+; Reports the worst-case path for each clock domain and analysis                                       ; Off                ;      ;    ;             ;
+; Reports worst-case timing paths for each clock domain and analysis                                   ; On                 ;      ;    ;             ;
+; Specifies the maximum number of worst-case timing paths to report for each clock domain and analysis ; 100                ;      ;    ;             ;
+; Removes common clock path pessimism (CCPP) during slack computation                                  ; Off                ;      ;    ;             ;
+; Output I/O Timing Endpoint                                                                           ; Near End           ;      ;    ;             ;
++------------------------------------------------------------------------------------------------------+--------------------+------+----+-------------+
+
+
++------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Clock Settings Summary                                                                                                                                                             ;
++-----------------+--------------------+----------+------------------+---------------+--------------+----------+-----------------------+---------------------+--------+--------------+
+; Clock Node Name ; Clock Setting Name ; Type     ; Fmax Requirement ; Early Latency ; Late Latency ; Based on ; Multiply Base Fmax by ; Divide Base Fmax by ; Offset ; Phase offset ;
++-----------------+--------------------+----------+------------------+---------------+--------------+----------+-----------------------+---------------------+--------+--------------+
+; CLOCK_24[0]     ;                    ; User Pin ; None             ; 0.000 ns      ; 0.000 ns     ; --       ; N/A                   ; N/A                 ; N/A    ;              ;
++-----------------+--------------------+----------+------------------+---------------+--------------+----------+-----------------------+---------------------+--------+--------------+
+
+
+Parallel compilation was disabled, but you have multiple processors available. Enable parallel compilation to reduce compilation time.
++-------------------------------------+
+; Parallel Compilation                ;
++----------------------------+--------+
+; Processors                 ; Number ;
++----------------------------+--------+
+; Number detected on machine ; 4      ;
+; Maximum allowed            ; 1      ;
++----------------------------+--------+
+
+
++-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Clock Setup: 'CLOCK_24[0]'                                                                                                                                                                                                                                      ;
++-----------------------------------------+-----------------------------------------------------+------------------------+------------------------+-------------+-------------+-----------------------------+---------------------------+-------------------------+
+; Slack                                   ; Actual fmax (period)                                ; From                   ; To                     ; From Clock  ; To Clock    ; Required Setup Relationship ; Required Longest P2P Time ; Actual Longest P2P Time ;
++-----------------------------------------+-----------------------------------------------------+------------------------+------------------------+-------------+-------------+-----------------------------+---------------------------+-------------------------+
+; N/A                                     ; 38.10 MHz ( period = 26.248 ns )                    ; mandelbrot:math|x[-28] ; mandelbrot:math|x[-32] ; CLOCK_24[0] ; CLOCK_24[0] ; None                        ; None                      ; 26.005 ns               ;
+; N/A                                     ; 38.16 MHz ( period = 26.208 ns )                    ; mandelbrot:math|x[-12] ; mandelbrot:math|x[-32] ; CLOCK_24[0] ; CLOCK_24[0] ; None                        ; None                      ; 25.965 ns               ;
+; N/A                                     ; 38.31 MHz ( period = 26.104 ns )                    ; mandelbrot:math|x[-32] ; mandelbrot:math|x[-32] ; CLOCK_24[0] ; CLOCK_24[0] ; None                        ; None                      ; 25.865 ns               ;
+; N/A                                     ; 38.34 MHz ( period = 26.084 ns )                    ; mandelbrot:math|x[-11] ; mandelbrot:math|x[-32] ; CLOCK_24[0] ; CLOCK_24[0] ; None                        ; None                      ; 25.841 ns               ;
+; N/A                                     ; 38.36 MHz ( period = 26.071 ns )                    ; mandelbrot:math|x[-7]  ; mandelbrot:math|x[-32] ; CLOCK_24[0] ; CLOCK_24[0] ; None                        ; None                      ; 25.828 ns               ;
+; N/A                                     ; 38.37 MHz ( period = 26.061 ns )                    ; mandelbrot:math|x[-28] ; mandelbrot:math|x[-21] ; CLOCK_24[0] ; CLOCK_24[0] ; None                        ; None                      ; 25.822 ns               ;
+; N/A                                     ; 38.38 MHz ( period = 26.055 ns )                    ; mandelbrot:math|x[-27] ; mandelbrot:math|x[-32] ; CLOCK_24[0] ; CLOCK_24[0] ; None                        ; None                      ; 25.812 ns               ;
+; N/A                                     ; 38.40 MHz ( period = 26.044 ns )                    ; mandelbrot:math|x[-8]  ; mandelbrot:math|x[-32] ; CLOCK_24[0] ; CLOCK_24[0] ; None                        ; None                      ; 25.801 ns               ;
+; N/A                                     ; 38.40 MHz ( period = 26.041 ns )                    ; mandelbrot:math|x[-14] ; mandelbrot:math|x[-32] ; CLOCK_24[0] ; CLOCK_24[0] ; None                        ; None                      ; 25.798 ns               ;
+; N/A                                     ; 38.43 MHz ( period = 26.021 ns )                    ; mandelbrot:math|x[-12] ; mandelbrot:math|x[-21] ; CLOCK_24[0] ; CLOCK_24[0] ; None                        ; None                      ; 25.782 ns               ;
+; N/A                                     ; 38.47 MHz ( period = 25.994 ns )                    ; mandelbrot:math|x[-24] ; mandelbrot:math|x[-32] ; CLOCK_24[0] ; CLOCK_24[0] ; None                        ; None                      ; 25.751 ns               ;
+; N/A                                     ; 38.47 MHz ( period = 25.991 ns )                    ; mandelbrot:math|x[-22] ; mandelbrot:math|x[-32] ; CLOCK_24[0] ; CLOCK_24[0] ; None                        ; None                      ; 25.752 ns               ;
+; N/A                                     ; 38.50 MHz ( period = 25.976 ns )                    ; mandelbrot:math|x[-23] ; mandelbrot:math|x[-32] ; CLOCK_24[0] ; CLOCK_24[0] ; None                        ; None                      ; 25.737 ns               ;
+; N/A                                     ; 38.50 MHz ( period = 25.971 ns )                    ; mandelbrot:math|x[-13] ; mandelbrot:math|x[-32] ; CLOCK_24[0] ; CLOCK_24[0] ; None                        ; None                      ; 25.728 ns               ;
+; N/A                                     ; 38.52 MHz ( period = 25.959 ns )                    ; mandelbrot:math|x[-30] ; mandelbrot:math|x[-32] ; CLOCK_24[0] ; CLOCK_24[0] ; None                        ; None                      ; 25.716 ns               ;
+; N/A                                     ; 38.52 MHz ( period = 25.958 ns )                    ; mandelbrot:math|x[-28] ; mandelbrot:math|x[-7]  ; CLOCK_24[0] ; CLOCK_24[0] ; None                        ; None                      ; 25.719 ns               ;
+; N/A                                     ; 38.53 MHz ( period = 25.953 ns )                    ; mandelbrot:math|x[-29] ; mandelbrot:math|x[-32] ; CLOCK_24[0] ; CLOCK_24[0] ; None                        ; None                      ; 25.710 ns               ;
+; N/A                                     ; 38.54 MHz ( period = 25.945 ns )                    ; mandelbrot:math|x[-31] ; mandelbrot:math|x[-32] ; CLOCK_24[0] ; CLOCK_24[0] ; None                        ; None                      ; 25.704 ns               ;
+; N/A                                     ; 38.54 MHz ( period = 25.944 ns )                    ; mandelbrot:math|x[-28] ; mandelbrot:math|x[-10] ; CLOCK_24[0] ; CLOCK_24[0] ; None                        ; None                      ; 25.705 ns               ;
+; N/A                                     ; 38.55 MHz ( period = 25.942 ns )                    ; mandelbrot:math|x[-28] ; mandelbrot:math|x[-8]  ; CLOCK_24[0] ; CLOCK_24[0] ; None                        ; None                      ; 25.703 ns               ;
+; N/A                                     ; 38.55 MHz ( period = 25.937 ns )                    ; mandelbrot:math|x[-28] ; mandelbrot:math|x[-14] ; CLOCK_24[0] ; CLOCK_24[0] ; None                        ; None                      ; 25.698 ns               ;
+; N/A                                     ; 38.58 MHz ( period = 25.918 ns )                    ; mandelbrot:math|x[-12] ; mandelbrot:math|x[-7]  ; CLOCK_24[0] ; CLOCK_24[0] ; None                        ; None                      ; 25.679 ns               ;
+; N/A                                     ; 38.58 MHz ( period = 25.917 ns )                    ; mandelbrot:math|x[-32] ; mandelbrot:math|x[-21] ; CLOCK_24[0] ; CLOCK_24[0] ; None                        ; None                      ; 25.682 ns               ;
+; N/A                                     ; 38.60 MHz ( period = 25.910 ns )                    ; mandelbrot:math|x[-10] ; mandelbrot:math|x[-32] ; CLOCK_24[0] ; CLOCK_24[0] ; None                        ; None                      ; 25.667 ns               ;
+; N/A                                     ; 38.60 MHz ( period = 25.904 ns )                    ; mandelbrot:math|x[-12] ; mandelbrot:math|x[-10] ; CLOCK_24[0] ; CLOCK_24[0] ; None                        ; None                      ; 25.665 ns               ;
+; N/A                                     ; 38.61 MHz ( period = 25.903 ns )                    ; mandelbrot:math|x[-25] ; mandelbrot:math|x[-32] ; CLOCK_24[0] ; CLOCK_24[0] ; None                        ; None                      ; 25.660 ns               ;
+; N/A                                     ; 38.61 MHz ( period = 25.902 ns )                    ; mandelbrot:math|x[-12] ; mandelbrot:math|x[-8]  ; CLOCK_24[0] ; CLOCK_24[0] ; None                        ; None                      ; 25.663 ns               ;
+; N/A                                     ; 38.61 MHz ( period = 25.897 ns )                    ; mandelbrot:math|x[-12] ; mandelbrot:math|x[-14] ; CLOCK_24[0] ; CLOCK_24[0] ; None                        ; None                      ; 25.658 ns               ;
+; N/A                                     ; 38.61 MHz ( period = 25.897 ns )                    ; mandelbrot:math|x[-11] ; mandelbrot:math|x[-21] ; CLOCK_24[0] ; CLOCK_24[0] ; None                        ; None                      ; 25.658 ns               ;
+; N/A                                     ; 38.63 MHz ( period = 25.884 ns )                    ; mandelbrot:math|x[-7]  ; mandelbrot:math|x[-21] ; CLOCK_24[0] ; CLOCK_24[0] ; None                        ; None                      ; 25.645 ns               ;
+; N/A                                     ; 38.66 MHz ( period = 25.868 ns )                    ; mandelbrot:math|x[-27] ; mandelbrot:math|x[-21] ; CLOCK_24[0] ; CLOCK_24[0] ; None                        ; None                      ; 25.629 ns               ;
+; N/A                                     ; 38.67 MHz ( period = 25.857 ns )                    ; mandelbrot:math|x[-8]  ; mandelbrot:math|x[-21] ; CLOCK_24[0] ; CLOCK_24[0] ; None                        ; None                      ; 25.618 ns               ;
+; N/A                                     ; 38.68 MHz ( period = 25.854 ns )                    ; mandelbrot:math|x[-14] ; mandelbrot:math|x[-21] ; CLOCK_24[0] ; CLOCK_24[0] ; None                        ; None                      ; 25.615 ns               ;
+; N/A                                     ; 38.71 MHz ( period = 25.834 ns )                    ; mandelbrot:math|x[-9]  ; mandelbrot:math|x[-32] ; CLOCK_24[0] ; CLOCK_24[0] ; None                        ; None                      ; 25.591 ns               ;
+; N/A                                     ; 38.73 MHz ( period = 25.822 ns )                    ; mandelbrot:math|x[-16] ; mandelbrot:math|x[-32] ; CLOCK_24[0] ; CLOCK_24[0] ; None                        ; None                      ; 25.585 ns               ;
+; N/A                                     ; 38.74 MHz ( period = 25.814 ns )                    ; mandelbrot:math|x[-32] ; mandelbrot:math|x[-7]  ; CLOCK_24[0] ; CLOCK_24[0] ; None                        ; None                      ; 25.579 ns               ;
+; N/A                                     ; 38.75 MHz ( period = 25.807 ns )                    ; mandelbrot:math|x[3]   ; mandelbrot:math|x[-32] ; CLOCK_24[0] ; CLOCK_24[0] ; None                        ; None                      ; 25.564 ns               ;
+; N/A                                     ; 38.75 MHz ( period = 25.807 ns )                    ; mandelbrot:math|x[-24] ; mandelbrot:math|x[-21] ; CLOCK_24[0] ; CLOCK_24[0] ; None                        ; None                      ; 25.568 ns               ;
+; N/A                                     ; 38.75 MHz ( period = 25.804 ns )                    ; mandelbrot:math|x[-22] ; mandelbrot:math|x[-21] ; CLOCK_24[0] ; CLOCK_24[0] ; None                        ; None                      ; 25.569 ns               ;
+; N/A                                     ; 38.76 MHz ( period = 25.800 ns )                    ; mandelbrot:math|x[-32] ; mandelbrot:math|x[-10] ; CLOCK_24[0] ; CLOCK_24[0] ; None                        ; None                      ; 25.565 ns               ;
+; N/A                                     ; 38.76 MHz ( period = 25.798 ns )                    ; mandelbrot:math|x[-32] ; mandelbrot:math|x[-8]  ; CLOCK_24[0] ; CLOCK_24[0] ; None                        ; None                      ; 25.563 ns               ;
+; N/A                                     ; 38.77 MHz ( period = 25.796 ns )                    ; mandelbrot:math|x[-26] ; mandelbrot:math|x[-32] ; CLOCK_24[0] ; CLOCK_24[0] ; None                        ; None                      ; 25.553 ns               ;
+; N/A                                     ; 38.77 MHz ( period = 25.794 ns )                    ; mandelbrot:math|x[-11] ; mandelbrot:math|x[-7]  ; CLOCK_24[0] ; CLOCK_24[0] ; None                        ; None                      ; 25.555 ns               ;
+; N/A                                     ; 38.77 MHz ( period = 25.793 ns )                    ; mandelbrot:math|x[-32] ; mandelbrot:math|x[-14] ; CLOCK_24[0] ; CLOCK_24[0] ; None                        ; None                      ; 25.558 ns               ;
+; N/A                                     ; 38.78 MHz ( period = 25.789 ns )                    ; mandelbrot:math|x[-5]  ; mandelbrot:math|x[-32] ; CLOCK_24[0] ; CLOCK_24[0] ; None                        ; None                      ; 25.548 ns               ;
+; N/A                                     ; 38.78 MHz ( period = 25.789 ns )                    ; mandelbrot:math|x[-23] ; mandelbrot:math|x[-21] ; CLOCK_24[0] ; CLOCK_24[0] ; None                        ; None                      ; 25.554 ns               ;
+; N/A                                     ; 38.78 MHz ( period = 25.784 ns )                    ; mandelbrot:math|x[-13] ; mandelbrot:math|x[-21] ; CLOCK_24[0] ; CLOCK_24[0] ; None                        ; None                      ; 25.545 ns               ;
+; N/A                                     ; 38.79 MHz ( period = 25.781 ns )                    ; mandelbrot:math|x[-7]  ; mandelbrot:math|x[-7]  ; CLOCK_24[0] ; CLOCK_24[0] ; None                        ; None                      ; 25.542 ns               ;
+; N/A                                     ; 38.79 MHz ( period = 25.780 ns )                    ; mandelbrot:math|x[-11] ; mandelbrot:math|x[-10] ; CLOCK_24[0] ; CLOCK_24[0] ; None                        ; None                      ; 25.541 ns               ;
+; N/A                                     ; 38.79 MHz ( period = 25.780 ns )                    ; mandelbrot:math|x[-28] ; mandelbrot:math|x[-25] ; CLOCK_24[0] ; CLOCK_24[0] ; None                        ; None                      ; 25.541 ns               ;
+; N/A                                     ; 38.79 MHz ( period = 25.778 ns )                    ; mandelbrot:math|x[-11] ; mandelbrot:math|x[-8]  ; CLOCK_24[0] ; CLOCK_24[0] ; None                        ; None                      ; 25.539 ns               ;
+; N/A                                     ; 38.80 MHz ( period = 25.773 ns )                    ; mandelbrot:math|x[-11] ; mandelbrot:math|x[-14] ; CLOCK_24[0] ; CLOCK_24[0] ; None                        ; None                      ; 25.534 ns               ;
+; N/A                                     ; 38.80 MHz ( period = 25.772 ns )                    ; mandelbrot:math|x[-30] ; mandelbrot:math|x[-21] ; CLOCK_24[0] ; CLOCK_24[0] ; None                        ; None                      ; 25.533 ns               ;
+; N/A                                     ; 38.81 MHz ( period = 25.769 ns )                    ; mandelbrot:math|x[-21] ; mandelbrot:math|x[-32] ; CLOCK_24[0] ; CLOCK_24[0] ; None                        ; None                      ; 25.526 ns               ;
+; N/A                                     ; 38.81 MHz ( period = 25.767 ns )                    ; mandelbrot:math|x[-7]  ; mandelbrot:math|x[-10] ; CLOCK_24[0] ; CLOCK_24[0] ; None                        ; None                      ; 25.528 ns               ;
+; N/A                                     ; 38.81 MHz ( period = 25.766 ns )                    ; mandelbrot:math|x[-29] ; mandelbrot:math|x[-21] ; CLOCK_24[0] ; CLOCK_24[0] ; None                        ; None                      ; 25.527 ns               ;
+; N/A                                     ; 38.81 MHz ( period = 25.765 ns )                    ; mandelbrot:math|x[-7]  ; mandelbrot:math|x[-8]  ; CLOCK_24[0] ; CLOCK_24[0] ; None                        ; None                      ; 25.526 ns               ;
+; N/A                                     ; 38.81 MHz ( period = 25.765 ns )                    ; mandelbrot:math|x[-27] ; mandelbrot:math|x[-7]  ; CLOCK_24[0] ; CLOCK_24[0] ; None                        ; None                      ; 25.526 ns               ;
+; N/A                                     ; 38.82 MHz ( period = 25.760 ns )                    ; mandelbrot:math|x[-7]  ; mandelbrot:math|x[-14] ; CLOCK_24[0] ; CLOCK_24[0] ; None                        ; None                      ; 25.521 ns               ;
+; N/A                                     ; 38.82 MHz ( period = 25.758 ns )                    ; mandelbrot:math|x[-31] ; mandelbrot:math|x[-21] ; CLOCK_24[0] ; CLOCK_24[0] ; None                        ; None                      ; 25.521 ns               ;
+; N/A                                     ; 38.83 MHz ( period = 25.754 ns )                    ; mandelbrot:math|x[-8]  ; mandelbrot:math|x[-7]  ; CLOCK_24[0] ; CLOCK_24[0] ; None                        ; None                      ; 25.515 ns               ;
+; N/A                                     ; 38.83 MHz ( period = 25.751 ns )                    ; mandelbrot:math|x[-27] ; mandelbrot:math|x[-10] ; CLOCK_24[0] ; CLOCK_24[0] ; None                        ; None                      ; 25.512 ns               ;
+; N/A                                     ; 38.83 MHz ( period = 25.751 ns )                    ; mandelbrot:math|x[-14] ; mandelbrot:math|x[-7]  ; CLOCK_24[0] ; CLOCK_24[0] ; None                        ; None                      ; 25.512 ns               ;
+; N/A                                     ; 38.84 MHz ( period = 25.749 ns )                    ; mandelbrot:math|x[-27] ; mandelbrot:math|x[-8]  ; CLOCK_24[0] ; CLOCK_24[0] ; None                        ; None                      ; 25.510 ns               ;
+; N/A                                     ; 38.84 MHz ( period = 25.744 ns )                    ; mandelbrot:math|x[-27] ; mandelbrot:math|x[-14] ; CLOCK_24[0] ; CLOCK_24[0] ; None                        ; None                      ; 25.505 ns               ;
+; N/A                                     ; 38.85 MHz ( period = 25.740 ns )                    ; mandelbrot:math|x[-8]  ; mandelbrot:math|x[-10] ; CLOCK_24[0] ; CLOCK_24[0] ; None                        ; None                      ; 25.501 ns               ;
+; N/A                                     ; 38.85 MHz ( period = 25.740 ns )                    ; mandelbrot:math|x[-28] ; mandelbrot:math|x[-29] ; CLOCK_24[0] ; CLOCK_24[0] ; None                        ; None                      ; 25.501 ns               ;
+; N/A                                     ; 38.85 MHz ( period = 25.740 ns )                    ; mandelbrot:math|x[-28] ; mandelbrot:math|x[-26] ; CLOCK_24[0] ; CLOCK_24[0] ; None                        ; None                      ; 25.501 ns               ;
+; N/A                                     ; 38.85 MHz ( period = 25.740 ns )                    ; mandelbrot:math|x[-12] ; mandelbrot:math|x[-25] ; CLOCK_24[0] ; CLOCK_24[0] ; None                        ; None                      ; 25.501 ns               ;
+; N/A                                     ; 38.85 MHz ( period = 25.739 ns )                    ; mandelbrot:math|x[-28] ; mandelbrot:math|x[-24] ; CLOCK_24[0] ; CLOCK_24[0] ; None                        ; None                      ; 25.500 ns               ;
+; N/A                                     ; 38.85 MHz ( period = 25.738 ns )                    ; mandelbrot:math|x[-8]  ; mandelbrot:math|x[-8]  ; CLOCK_24[0] ; CLOCK_24[0] ; None                        ; None                      ; 25.499 ns               ;
+; N/A                                     ; 38.85 MHz ( period = 25.737 ns )                    ; mandelbrot:math|x[-14] ; mandelbrot:math|x[-10] ; CLOCK_24[0] ; CLOCK_24[0] ; None                        ; None                      ; 25.498 ns               ;
+; N/A                                     ; 38.86 MHz ( period = 25.735 ns )                    ; mandelbrot:math|x[-14] ; mandelbrot:math|x[-8]  ; CLOCK_24[0] ; CLOCK_24[0] ; None                        ; None                      ; 25.496 ns               ;
+; N/A                                     ; 38.86 MHz ( period = 25.734 ns )                    ; mandelbrot:math|x[-28] ; mandelbrot:math|x[-30] ; CLOCK_24[0] ; CLOCK_24[0] ; None                        ; None                      ; 25.495 ns               ;
+; N/A                                     ; 38.86 MHz ( period = 25.733 ns )                    ; mandelbrot:math|x[-8]  ; mandelbrot:math|x[-14] ; CLOCK_24[0] ; CLOCK_24[0] ; None                        ; None                      ; 25.494 ns               ;
+; N/A                                     ; 38.86 MHz ( period = 25.731 ns )                    ; mandelbrot:math|x[-28] ; mandelbrot:math|x[-28] ; CLOCK_24[0] ; CLOCK_24[0] ; None                        ; None                      ; 25.492 ns               ;
+; N/A                                     ; 38.87 MHz ( period = 25.730 ns )                    ; mandelbrot:math|x[-14] ; mandelbrot:math|x[-14] ; CLOCK_24[0] ; CLOCK_24[0] ; None                        ; None                      ; 25.491 ns               ;
+; N/A                                     ; 38.87 MHz ( period = 25.726 ns )                    ; mandelbrot:math|x[-28] ; mandelbrot:math|x[-27] ; CLOCK_24[0] ; CLOCK_24[0] ; None                        ; None                      ; 25.487 ns               ;
+; N/A                                     ; 38.88 MHz ( period = 25.723 ns )                    ; mandelbrot:math|x[-10] ; mandelbrot:math|x[-21] ; CLOCK_24[0] ; CLOCK_24[0] ; None                        ; None                      ; 25.484 ns               ;
+; N/A                                     ; 38.89 MHz ( period = 25.716 ns )                    ; mandelbrot:math|x[-25] ; mandelbrot:math|x[-21] ; CLOCK_24[0] ; CLOCK_24[0] ; None                        ; None                      ; 25.477 ns               ;
+; N/A                                     ; 38.90 MHz ( period = 25.707 ns )                    ; mandelbrot:math|x[-28] ; mandelbrot:math|x[-12] ; CLOCK_24[0] ; CLOCK_24[0] ; None                        ; None                      ; 25.468 ns               ;
+; N/A                                     ; 38.90 MHz ( period = 25.707 ns )                    ; mandelbrot:math|x[-28] ; mandelbrot:math|x[-11] ; CLOCK_24[0] ; CLOCK_24[0] ; None                        ; None                      ; 25.468 ns               ;
+; N/A                                     ; 38.90 MHz ( period = 25.707 ns )                    ; mandelbrot:math|x[-28] ; mandelbrot:math|x[-9]  ; CLOCK_24[0] ; CLOCK_24[0] ; None                        ; None                      ; 25.468 ns               ;
+; N/A                                     ; 38.90 MHz ( period = 25.705 ns )                    ; mandelbrot:math|x[-28] ; mandelbrot:math|x[-13] ; CLOCK_24[0] ; CLOCK_24[0] ; None                        ; None                      ; 25.466 ns               ;
+; N/A                                     ; 38.90 MHz ( period = 25.704 ns )                    ; mandelbrot:math|x[-24] ; mandelbrot:math|x[-7]  ; CLOCK_24[0] ; CLOCK_24[0] ; None                        ; None                      ; 25.465 ns               ;
+; N/A                                     ; 38.91 MHz ( period = 25.701 ns )                    ; mandelbrot:math|x[-22] ; mandelbrot:math|x[-7]  ; CLOCK_24[0] ; CLOCK_24[0] ; None                        ; None                      ; 25.466 ns               ;
+; N/A                                     ; 38.91 MHz ( period = 25.700 ns )                    ; mandelbrot:math|x[-12] ; mandelbrot:math|x[-29] ; CLOCK_24[0] ; CLOCK_24[0] ; None                        ; None                      ; 25.461 ns               ;
+; N/A                                     ; 38.91 MHz ( period = 25.700 ns )                    ; mandelbrot:math|x[-12] ; mandelbrot:math|x[-26] ; CLOCK_24[0] ; CLOCK_24[0] ; None                        ; None                      ; 25.461 ns               ;
+; N/A                                     ; 38.91 MHz ( period = 25.699 ns )                    ; mandelbrot:math|x[-12] ; mandelbrot:math|x[-24] ; CLOCK_24[0] ; CLOCK_24[0] ; None                        ; None                      ; 25.460 ns               ;
+; N/A                                     ; 38.92 MHz ( period = 25.694 ns )                    ; mandelbrot:math|x[-12] ; mandelbrot:math|x[-30] ; CLOCK_24[0] ; CLOCK_24[0] ; None                        ; None                      ; 25.455 ns               ;
+; N/A                                     ; 38.92 MHz ( period = 25.691 ns )                    ; mandelbrot:math|x[-12] ; mandelbrot:math|x[-28] ; CLOCK_24[0] ; CLOCK_24[0] ; None                        ; None                      ; 25.452 ns               ;
+; N/A                                     ; 38.93 MHz ( period = 25.690 ns )                    ; mandelbrot:math|x[-24] ; mandelbrot:math|x[-10] ; CLOCK_24[0] ; CLOCK_24[0] ; None                        ; None                      ; 25.451 ns               ;
+; N/A                                     ; 38.93 MHz ( period = 25.688 ns )                    ; mandelbrot:math|x[-24] ; mandelbrot:math|x[-8]  ; CLOCK_24[0] ; CLOCK_24[0] ; None                        ; None                      ; 25.449 ns               ;
+; N/A                                     ; 38.93 MHz ( period = 25.687 ns )                    ; mandelbrot:math|x[-22] ; mandelbrot:math|x[-10] ; CLOCK_24[0] ; CLOCK_24[0] ; None                        ; None                      ; 25.452 ns               ;
+; N/A                                     ; 38.93 MHz ( period = 25.686 ns )                    ; mandelbrot:math|x[-23] ; mandelbrot:math|x[-7]  ; CLOCK_24[0] ; CLOCK_24[0] ; None                        ; None                      ; 25.451 ns               ;
+; N/A                                     ; 38.93 MHz ( period = 25.686 ns )                    ; mandelbrot:math|x[-12] ; mandelbrot:math|x[-27] ; CLOCK_24[0] ; CLOCK_24[0] ; None                        ; None                      ; 25.447 ns               ;
+; N/A                                     ; 38.93 MHz ( period = 25.685 ns )                    ; mandelbrot:math|x[-22] ; mandelbrot:math|x[-8]  ; CLOCK_24[0] ; CLOCK_24[0] ; None                        ; None                      ; 25.450 ns               ;
+; N/A                                     ; 38.94 MHz ( period = 25.683 ns )                    ; mandelbrot:math|x[-24] ; mandelbrot:math|x[-14] ; CLOCK_24[0] ; CLOCK_24[0] ; None                        ; None                      ; 25.444 ns               ;
+; N/A                                     ; 38.94 MHz ( period = 25.681 ns )                    ; mandelbrot:math|x[-13] ; mandelbrot:math|x[-7]  ; CLOCK_24[0] ; CLOCK_24[0] ; None                        ; None                      ; 25.442 ns               ;
+; N/A                                     ; 38.94 MHz ( period = 25.680 ns )                    ; mandelbrot:math|x[-22] ; mandelbrot:math|x[-14] ; CLOCK_24[0] ; CLOCK_24[0] ; None                        ; None                      ; 25.445 ns               ;
+; N/A                                     ; 38.95 MHz ( period = 25.672 ns )                    ; mandelbrot:math|x[-23] ; mandelbrot:math|x[-10] ; CLOCK_24[0] ; CLOCK_24[0] ; None                        ; None                      ; 25.437 ns               ;
+; N/A                                     ; 38.96 MHz ( period = 25.670 ns )                    ; mandelbrot:math|x[-23] ; mandelbrot:math|x[-8]  ; CLOCK_24[0] ; CLOCK_24[0] ; None                        ; None                      ; 25.435 ns               ;
+; N/A                                     ; 38.96 MHz ( period = 25.669 ns )                    ; mandelbrot:math|x[-30] ; mandelbrot:math|x[-7]  ; CLOCK_24[0] ; CLOCK_24[0] ; None                        ; None                      ; 25.430 ns               ;
+; N/A                                     ; 38.96 MHz ( period = 25.667 ns )                    ; mandelbrot:math|x[-12] ; mandelbrot:math|x[-12] ; CLOCK_24[0] ; CLOCK_24[0] ; None                        ; None                      ; 25.428 ns               ;
+; N/A                                     ; 38.96 MHz ( period = 25.667 ns )                    ; mandelbrot:math|x[-12] ; mandelbrot:math|x[-11] ; CLOCK_24[0] ; CLOCK_24[0] ; None                        ; None                      ; 25.428 ns               ;
+; N/A                                     ; 38.96 MHz ( period = 25.667 ns )                    ; mandelbrot:math|x[-13] ; mandelbrot:math|x[-10] ; CLOCK_24[0] ; CLOCK_24[0] ; None                        ; None                      ; 25.428 ns               ;
+; N/A                                     ; 38.96 MHz ( period = 25.667 ns )                    ; mandelbrot:math|x[-12] ; mandelbrot:math|x[-9]  ; CLOCK_24[0] ; CLOCK_24[0] ; None                        ; None                      ; 25.428 ns               ;
+; N/A                                     ; 38.96 MHz ( period = 25.665 ns )                    ; mandelbrot:math|x[-23] ; mandelbrot:math|x[-14] ; CLOCK_24[0] ; CLOCK_24[0] ; None                        ; None                      ; 25.430 ns               ;
+; N/A                                     ; 38.96 MHz ( period = 25.665 ns )                    ; mandelbrot:math|x[-12] ; mandelbrot:math|x[-13] ; CLOCK_24[0] ; CLOCK_24[0] ; None                        ; None                      ; 25.426 ns               ;
+; N/A                                     ; 38.96 MHz ( period = 25.665 ns )                    ; mandelbrot:math|x[-13] ; mandelbrot:math|x[-8]  ; CLOCK_24[0] ; CLOCK_24[0] ; None                        ; None                      ; 25.426 ns               ;
+; N/A                                     ; 38.97 MHz ( period = 25.663 ns )                    ; mandelbrot:math|x[-29] ; mandelbrot:math|x[-7]  ; CLOCK_24[0] ; CLOCK_24[0] ; None                        ; None                      ; 25.424 ns               ;
+; N/A                                     ; 38.97 MHz ( period = 25.660 ns )                    ; mandelbrot:math|x[-13] ; mandelbrot:math|x[-14] ; CLOCK_24[0] ; CLOCK_24[0] ; None                        ; None                      ; 25.421 ns               ;
+; N/A                                     ; 38.98 MHz ( period = 25.656 ns )                    ; mandelbrot:math|x[-1]  ; mandelbrot:math|x[-32] ; CLOCK_24[0] ; CLOCK_24[0] ; None                        ; None                      ; 25.415 ns               ;
+; N/A                                     ; 38.98 MHz ( period = 25.655 ns )                    ; mandelbrot:math|x[-30] ; mandelbrot:math|x[-10] ; CLOCK_24[0] ; CLOCK_24[0] ; None                        ; None                      ; 25.416 ns               ;
+; N/A                                     ; 38.98 MHz ( period = 25.655 ns )                    ; mandelbrot:math|x[-31] ; mandelbrot:math|x[-7]  ; CLOCK_24[0] ; CLOCK_24[0] ; None                        ; None                      ; 25.418 ns               ;
+; N/A                                     ; 38.98 MHz ( period = 25.653 ns )                    ; mandelbrot:math|x[-30] ; mandelbrot:math|x[-8]  ; CLOCK_24[0] ; CLOCK_24[0] ; None                        ; None                      ; 25.414 ns               ;
+; N/A                                     ; 38.99 MHz ( period = 25.649 ns )                    ; mandelbrot:math|x[-29] ; mandelbrot:math|x[-10] ; CLOCK_24[0] ; CLOCK_24[0] ; None                        ; None                      ; 25.410 ns               ;
+; N/A                                     ; 38.99 MHz ( period = 25.648 ns )                    ; mandelbrot:math|x[-30] ; mandelbrot:math|x[-14] ; CLOCK_24[0] ; CLOCK_24[0] ; None                        ; None                      ; 25.409 ns               ;
+; N/A                                     ; 38.99 MHz ( period = 25.647 ns )                    ; mandelbrot:math|x[-29] ; mandelbrot:math|x[-8]  ; CLOCK_24[0] ; CLOCK_24[0] ; None                        ; None                      ; 25.408 ns               ;
+; N/A                                     ; 38.99 MHz ( period = 25.647 ns )                    ; mandelbrot:math|x[-9]  ; mandelbrot:math|x[-21] ; CLOCK_24[0] ; CLOCK_24[0] ; None                        ; None                      ; 25.408 ns               ;
+; N/A                                     ; 39.00 MHz ( period = 25.642 ns )                    ; mandelbrot:math|x[-29] ; mandelbrot:math|x[-14] ; CLOCK_24[0] ; CLOCK_24[0] ; None                        ; None                      ; 25.403 ns               ;
+; N/A                                     ; 39.00 MHz ( period = 25.641 ns )                    ; mandelbrot:math|x[-31] ; mandelbrot:math|x[-10] ; CLOCK_24[0] ; CLOCK_24[0] ; None                        ; None                      ; 25.404 ns               ;
+; N/A                                     ; 39.00 MHz ( period = 25.639 ns )                    ; mandelbrot:math|x[-31] ; mandelbrot:math|x[-8]  ; CLOCK_24[0] ; CLOCK_24[0] ; None                        ; None                      ; 25.402 ns               ;
+; N/A                                     ; 39.01 MHz ( period = 25.636 ns )                    ; mandelbrot:math|x[-32] ; mandelbrot:math|x[-25] ; CLOCK_24[0] ; CLOCK_24[0] ; None                        ; None                      ; 25.401 ns               ;
+; N/A                                     ; 39.01 MHz ( period = 25.635 ns )                    ; mandelbrot:math|x[-16] ; mandelbrot:math|x[-21] ; CLOCK_24[0] ; CLOCK_24[0] ; None                        ; None                      ; 25.402 ns               ;
+; N/A                                     ; 39.01 MHz ( period = 25.634 ns )                    ; mandelbrot:math|x[-31] ; mandelbrot:math|x[-14] ; CLOCK_24[0] ; CLOCK_24[0] ; None                        ; None                      ; 25.397 ns               ;
+; N/A                                     ; 39.02 MHz ( period = 25.631 ns )                    ; mandelbrot:math|x[-4]  ; mandelbrot:math|x[-32] ; CLOCK_24[0] ; CLOCK_24[0] ; None                        ; None                      ; 25.390 ns               ;
+; N/A                                     ; 39.03 MHz ( period = 25.620 ns )                    ; mandelbrot:math|x[-10] ; mandelbrot:math|x[-7]  ; CLOCK_24[0] ; CLOCK_24[0] ; None                        ; None                      ; 25.381 ns               ;
+; N/A                                     ; 39.03 MHz ( period = 25.620 ns )                    ; mandelbrot:math|x[3]   ; mandelbrot:math|x[-21] ; CLOCK_24[0] ; CLOCK_24[0] ; None                        ; None                      ; 25.381 ns               ;
+; N/A                                     ; 39.04 MHz ( period = 25.617 ns )                    ; mandelbrot:math|x[-28] ; mandelbrot:math|x[-16] ; CLOCK_24[0] ; CLOCK_24[0] ; None                        ; None                      ; 25.372 ns               ;
+; N/A                                     ; 39.04 MHz ( period = 25.616 ns )                    ; mandelbrot:math|x[-11] ; mandelbrot:math|x[-25] ; CLOCK_24[0] ; CLOCK_24[0] ; None                        ; None                      ; 25.377 ns               ;
+; N/A                                     ; 39.04 MHz ( period = 25.613 ns )                    ; mandelbrot:math|x[-25] ; mandelbrot:math|x[-7]  ; CLOCK_24[0] ; CLOCK_24[0] ; None                        ; None                      ; 25.374 ns               ;
+; N/A                                     ; 39.04 MHz ( period = 25.612 ns )                    ; mandelbrot:math|x[-6]  ; mandelbrot:math|x[-32] ; CLOCK_24[0] ; CLOCK_24[0] ; None                        ; None                      ; 25.371 ns               ;
+; N/A                                     ; 39.05 MHz ( period = 25.609 ns )                    ; mandelbrot:math|x[-26] ; mandelbrot:math|x[-21] ; CLOCK_24[0] ; CLOCK_24[0] ; None                        ; None                      ; 25.370 ns               ;
+; N/A                                     ; 39.05 MHz ( period = 25.606 ns )                    ; mandelbrot:math|x[-10] ; mandelbrot:math|x[-10] ; CLOCK_24[0] ; CLOCK_24[0] ; None                        ; None                      ; 25.367 ns               ;
+; N/A                                     ; 39.05 MHz ( period = 25.606 ns )                    ; mandelbrot:math|x[-2]  ; mandelbrot:math|x[-32] ; CLOCK_24[0] ; CLOCK_24[0] ; None                        ; None                      ; 25.365 ns               ;
+; N/A                                     ; 39.06 MHz ( period = 25.604 ns )                    ; mandelbrot:math|x[-10] ; mandelbrot:math|x[-8]  ; CLOCK_24[0] ; CLOCK_24[0] ; None                        ; None                      ; 25.365 ns               ;
+; N/A                                     ; 39.06 MHz ( period = 25.603 ns )                    ; mandelbrot:math|x[-7]  ; mandelbrot:math|x[-25] ; CLOCK_24[0] ; CLOCK_24[0] ; None                        ; None                      ; 25.364 ns               ;
+; N/A                                     ; 39.06 MHz ( period = 25.602 ns )                    ; mandelbrot:math|x[-5]  ; mandelbrot:math|x[-21] ; CLOCK_24[0] ; CLOCK_24[0] ; None                        ; None                      ; 25.365 ns               ;
+; N/A                                     ; 39.06 MHz ( period = 25.599 ns )                    ; mandelbrot:math|x[-10] ; mandelbrot:math|x[-14] ; CLOCK_24[0] ; CLOCK_24[0] ; None                        ; None                      ; 25.360 ns               ;
+; N/A                                     ; 39.06 MHz ( period = 25.599 ns )                    ; mandelbrot:math|x[-25] ; mandelbrot:math|x[-10] ; CLOCK_24[0] ; CLOCK_24[0] ; None                        ; None                      ; 25.360 ns               ;
+; N/A                                     ; 39.07 MHz ( period = 25.597 ns )                    ; mandelbrot:math|x[-25] ; mandelbrot:math|x[-8]  ; CLOCK_24[0] ; CLOCK_24[0] ; None                        ; None                      ; 25.358 ns               ;
+; N/A                                     ; 39.07 MHz ( period = 25.596 ns )                    ; mandelbrot:math|x[-32] ; mandelbrot:math|x[-29] ; CLOCK_24[0] ; CLOCK_24[0] ; None                        ; None                      ; 25.361 ns               ;
+; N/A                                     ; 39.07 MHz ( period = 25.596 ns )                    ; mandelbrot:math|x[-32] ; mandelbrot:math|x[-26] ; CLOCK_24[0] ; CLOCK_24[0] ; None                        ; None                      ; 25.361 ns               ;
+; N/A                                     ; 39.07 MHz ( period = 25.595 ns )                    ; mandelbrot:math|x[-32] ; mandelbrot:math|x[-24] ; CLOCK_24[0] ; CLOCK_24[0] ; None                        ; None                      ; 25.360 ns               ;
+; N/A                                     ; 39.07 MHz ( period = 25.592 ns )                    ; mandelbrot:math|x[-25] ; mandelbrot:math|x[-14] ; CLOCK_24[0] ; CLOCK_24[0] ; None                        ; None                      ; 25.353 ns               ;
+; N/A                                     ; 39.08 MHz ( period = 25.590 ns )                    ; mandelbrot:math|x[-32] ; mandelbrot:math|x[-30] ; CLOCK_24[0] ; CLOCK_24[0] ; None                        ; None                      ; 25.355 ns               ;
+; N/A                                     ; 39.08 MHz ( period = 25.587 ns )                    ; mandelbrot:math|x[-32] ; mandelbrot:math|x[-28] ; CLOCK_24[0] ; CLOCK_24[0] ; None                        ; None                      ; 25.352 ns               ;
+; N/A                                     ; 39.08 MHz ( period = 25.587 ns )                    ; mandelbrot:math|x[-27] ; mandelbrot:math|x[-25] ; CLOCK_24[0] ; CLOCK_24[0] ; None                        ; None                      ; 25.348 ns               ;
+; N/A                                     ; 39.08 MHz ( period = 25.587 ns )                    ; mandelbrot:math|x[-28] ; mandelbrot:math|x[-17] ; CLOCK_24[0] ; CLOCK_24[0] ; None                        ; None                      ; 25.342 ns               ;
+; N/A                                     ; 39.09 MHz ( period = 25.582 ns )                    ; mandelbrot:math|x[-32] ; mandelbrot:math|x[-27] ; CLOCK_24[0] ; CLOCK_24[0] ; None                        ; None                      ; 25.347 ns               ;
+; N/A                                     ; 39.09 MHz ( period = 25.582 ns )                    ; mandelbrot:math|x[-21] ; mandelbrot:math|x[-21] ; CLOCK_24[0] ; CLOCK_24[0] ; None                        ; None                      ; 25.343 ns               ;
+; N/A                                     ; 39.10 MHz ( period = 25.577 ns )                    ; mandelbrot:math|x[-12] ; mandelbrot:math|x[-16] ; CLOCK_24[0] ; CLOCK_24[0] ; None                        ; None                      ; 25.332 ns               ;
+; N/A                                     ; 39.10 MHz ( period = 25.576 ns )                    ; mandelbrot:math|x[-11] ; mandelbrot:math|x[-29] ; CLOCK_24[0] ; CLOCK_24[0] ; None                        ; None                      ; 25.337 ns               ;
+; N/A                                     ; 39.10 MHz ( period = 25.576 ns )                    ; mandelbrot:math|x[-11] ; mandelbrot:math|x[-26] ; CLOCK_24[0] ; CLOCK_24[0] ; None                        ; None                      ; 25.337 ns               ;
+; N/A                                     ; 39.10 MHz ( period = 25.576 ns )                    ; mandelbrot:math|x[-8]  ; mandelbrot:math|x[-25] ; CLOCK_24[0] ; CLOCK_24[0] ; None                        ; None                      ; 25.337 ns               ;
+; N/A                                     ; 39.10 MHz ( period = 25.575 ns )                    ; mandelbrot:math|x[-11] ; mandelbrot:math|x[-24] ; CLOCK_24[0] ; CLOCK_24[0] ; None                        ; None                      ; 25.336 ns               ;
+; N/A                                     ; 39.10 MHz ( period = 25.573 ns )                    ; mandelbrot:math|x[-14] ; mandelbrot:math|x[-25] ; CLOCK_24[0] ; CLOCK_24[0] ; None                        ; None                      ; 25.334 ns               ;
+; N/A                                     ; 39.11 MHz ( period = 25.570 ns )                    ; mandelbrot:math|x[-11] ; mandelbrot:math|x[-30] ; CLOCK_24[0] ; CLOCK_24[0] ; None                        ; None                      ; 25.331 ns               ;
+; N/A                                     ; 39.11 MHz ( period = 25.567 ns )                    ; mandelbrot:math|x[-11] ; mandelbrot:math|x[-28] ; CLOCK_24[0] ; CLOCK_24[0] ; None                        ; None                      ; 25.328 ns               ;
+; N/A                                     ; 39.12 MHz ( period = 25.563 ns )                    ; mandelbrot:math|x[-32] ; mandelbrot:math|x[-12] ; CLOCK_24[0] ; CLOCK_24[0] ; None                        ; None                      ; 25.328 ns               ;
+; N/A                                     ; 39.12 MHz ( period = 25.563 ns )                    ; mandelbrot:math|x[-32] ; mandelbrot:math|x[-11] ; CLOCK_24[0] ; CLOCK_24[0] ; None                        ; None                      ; 25.328 ns               ;
+; N/A                                     ; 39.12 MHz ( period = 25.563 ns )                    ; mandelbrot:math|x[-32] ; mandelbrot:math|x[-9]  ; CLOCK_24[0] ; CLOCK_24[0] ; None                        ; None                      ; 25.328 ns               ;
+; N/A                                     ; 39.12 MHz ( period = 25.563 ns )                    ; mandelbrot:math|x[-7]  ; mandelbrot:math|x[-29] ; CLOCK_24[0] ; CLOCK_24[0] ; None                        ; None                      ; 25.324 ns               ;
+; N/A                                     ; 39.12 MHz ( period = 25.563 ns )                    ; mandelbrot:math|x[-7]  ; mandelbrot:math|x[-26] ; CLOCK_24[0] ; CLOCK_24[0] ; None                        ; None                      ; 25.324 ns               ;
+; N/A                                     ; 39.12 MHz ( period = 25.562 ns )                    ; mandelbrot:math|x[-11] ; mandelbrot:math|x[-27] ; CLOCK_24[0] ; CLOCK_24[0] ; None                        ; None                      ; 25.323 ns               ;
+; N/A                                     ; 39.12 MHz ( period = 25.562 ns )                    ; mandelbrot:math|x[-7]  ; mandelbrot:math|x[-24] ; CLOCK_24[0] ; CLOCK_24[0] ; None                        ; None                      ; 25.323 ns               ;
+; N/A                                     ; 39.12 MHz ( period = 25.561 ns )                    ; mandelbrot:math|x[-32] ; mandelbrot:math|x[-13] ; CLOCK_24[0] ; CLOCK_24[0] ; None                        ; None                      ; 25.326 ns               ;
+; N/A                                     ; 39.13 MHz ( period = 25.557 ns )                    ; mandelbrot:math|x[-7]  ; mandelbrot:math|x[-30] ; CLOCK_24[0] ; CLOCK_24[0] ; None                        ; None                      ; 25.318 ns               ;
+; N/A                                     ; 39.13 MHz ( period = 25.556 ns )                    ; mandelbrot:math|x[-28] ; mandelbrot:math|x[-18] ; CLOCK_24[0] ; CLOCK_24[0] ; None                        ; None                      ; 25.311 ns               ;
+; N/A                                     ; 39.13 MHz ( period = 25.554 ns )                    ; mandelbrot:math|x[-7]  ; mandelbrot:math|x[-28] ; CLOCK_24[0] ; CLOCK_24[0] ; None                        ; None                      ; 25.315 ns               ;
+; N/A                                     ; 39.13 MHz ( period = 25.553 ns )                    ; mandelbrot:math|x[-28] ; mandelbrot:math|x[-19] ; CLOCK_24[0] ; CLOCK_24[0] ; None                        ; None                      ; 25.308 ns               ;
+; N/A                                     ; 39.14 MHz ( period = 25.552 ns )                    ; mandelbrot:math|x[-28] ; mandelbrot:math|x[-1]  ; CLOCK_24[0] ; CLOCK_24[0] ; None                        ; None                      ; 25.311 ns               ;
+; N/A                                     ; 39.14 MHz ( period = 25.552 ns )                    ; mandelbrot:math|x[-28] ; mandelbrot:math|x[-20] ; CLOCK_24[0] ; CLOCK_24[0] ; None                        ; None                      ; 25.307 ns               ;
+; N/A                                     ; 39.14 MHz ( period = 25.551 ns )                    ; mandelbrot:math|x[-28] ; mandelbrot:math|x[-22] ; CLOCK_24[0] ; CLOCK_24[0] ; None                        ; None                      ; 25.308 ns               ;
+; N/A                                     ; 39.14 MHz ( period = 25.551 ns )                    ; mandelbrot:math|x[-28] ; mandelbrot:math|x[-15] ; CLOCK_24[0] ; CLOCK_24[0] ; None                        ; None                      ; 25.306 ns               ;
+; N/A                                     ; 39.14 MHz ( period = 25.549 ns )                    ; mandelbrot:math|x[-7]  ; mandelbrot:math|x[-27] ; CLOCK_24[0] ; CLOCK_24[0] ; None                        ; None                      ; 25.310 ns               ;
+; N/A                                     ; 39.14 MHz ( period = 25.547 ns )                    ; mandelbrot:math|x[-27] ; mandelbrot:math|x[-29] ; CLOCK_24[0] ; CLOCK_24[0] ; None                        ; None                      ; 25.308 ns               ;
+; N/A                                     ; 39.14 MHz ( period = 25.547 ns )                    ; mandelbrot:math|x[-27] ; mandelbrot:math|x[-26] ; CLOCK_24[0] ; CLOCK_24[0] ; None                        ; None                      ; 25.308 ns               ;
+; N/A                                     ; 39.14 MHz ( period = 25.547 ns )                    ; mandelbrot:math|x[-12] ; mandelbrot:math|x[-17] ; CLOCK_24[0] ; CLOCK_24[0] ; None                        ; None                      ; 25.302 ns               ;
+; N/A                                     ; 39.15 MHz ( period = 25.546 ns )                    ; mandelbrot:math|x[-27] ; mandelbrot:math|x[-24] ; CLOCK_24[0] ; CLOCK_24[0] ; None                        ; None                      ; 25.307 ns               ;
+; N/A                                     ; 39.15 MHz ( period = 25.544 ns )                    ; mandelbrot:math|x[-9]  ; mandelbrot:math|x[-7]  ; CLOCK_24[0] ; CLOCK_24[0] ; None                        ; None                      ; 25.305 ns               ;
+; N/A                                     ; 39.15 MHz ( period = 25.543 ns )                    ; mandelbrot:math|x[-11] ; mandelbrot:math|x[-12] ; CLOCK_24[0] ; CLOCK_24[0] ; None                        ; None                      ; 25.304 ns               ;
+; N/A                                     ; 39.15 MHz ( period = 25.543 ns )                    ; mandelbrot:math|x[-11] ; mandelbrot:math|x[-11] ; CLOCK_24[0] ; CLOCK_24[0] ; None                        ; None                      ; 25.304 ns               ;
+; N/A                                     ; 39.15 MHz ( period = 25.543 ns )                    ; mandelbrot:math|x[-11] ; mandelbrot:math|x[-9]  ; CLOCK_24[0] ; CLOCK_24[0] ; None                        ; None                      ; 25.304 ns               ;
+; N/A                                     ; 39.15 MHz ( period = 25.541 ns )                    ; mandelbrot:math|x[-11] ; mandelbrot:math|x[-13] ; CLOCK_24[0] ; CLOCK_24[0] ; None                        ; None                      ; 25.302 ns               ;
+; N/A                                     ; 39.15 MHz ( period = 25.541 ns )                    ; mandelbrot:math|x[-27] ; mandelbrot:math|x[-30] ; CLOCK_24[0] ; CLOCK_24[0] ; None                        ; None                      ; 25.302 ns               ;
+; N/A                                     ; 39.15 MHz ( period = 25.541 ns )                    ; mandelbrot:math|x[-28] ; mandelbrot:math|x[-23] ; CLOCK_24[0] ; CLOCK_24[0] ; None                        ; None                      ; 25.298 ns               ;
+; N/A                                     ; 39.16 MHz ( period = 25.538 ns )                    ; mandelbrot:math|x[-27] ; mandelbrot:math|x[-28] ; CLOCK_24[0] ; CLOCK_24[0] ; None                        ; None                      ; 25.299 ns               ;
+; N/A                                     ; 39.16 MHz ( period = 25.536 ns )                    ; mandelbrot:math|x[-8]  ; mandelbrot:math|x[-29] ; CLOCK_24[0] ; CLOCK_24[0] ; None                        ; None                      ; 25.297 ns               ;
+; N/A                                     ; 39.16 MHz ( period = 25.536 ns )                    ; mandelbrot:math|x[-8]  ; mandelbrot:math|x[-26] ; CLOCK_24[0] ; CLOCK_24[0] ; None                        ; None                      ; 25.297 ns               ;
+; N/A                                     ; 39.16 MHz ( period = 25.535 ns )                    ; mandelbrot:math|x[-28] ; mandelbrot:math|x[-3]  ; CLOCK_24[0] ; CLOCK_24[0] ; None                        ; None                      ; 25.294 ns               ;
+; N/A                                     ; 39.16 MHz ( period = 25.535 ns )                    ; mandelbrot:math|x[-8]  ; mandelbrot:math|x[-24] ; CLOCK_24[0] ; CLOCK_24[0] ; None                        ; None                      ; 25.296 ns               ;
+; N/A                                     ; 39.17 MHz ( period = 25.533 ns )                    ; mandelbrot:math|x[-14] ; mandelbrot:math|x[-29] ; CLOCK_24[0] ; CLOCK_24[0] ; None                        ; None                      ; 25.294 ns               ;
+; N/A                                     ; 39.17 MHz ( period = 25.533 ns )                    ; mandelbrot:math|x[-27] ; mandelbrot:math|x[-27] ; CLOCK_24[0] ; CLOCK_24[0] ; None                        ; None                      ; 25.294 ns               ;
+; N/A                                     ; 39.17 MHz ( period = 25.533 ns )                    ; mandelbrot:math|x[-14] ; mandelbrot:math|x[-26] ; CLOCK_24[0] ; CLOCK_24[0] ; None                        ; None                      ; 25.294 ns               ;
+; N/A                                     ; 39.17 MHz ( period = 25.532 ns )                    ; mandelbrot:math|x[-16] ; mandelbrot:math|x[-7]  ; CLOCK_24[0] ; CLOCK_24[0] ; None                        ; None                      ; 25.299 ns               ;
+; N/A                                     ; 39.17 MHz ( period = 25.532 ns )                    ; mandelbrot:math|x[-14] ; mandelbrot:math|x[-24] ; CLOCK_24[0] ; CLOCK_24[0] ; None                        ; None                      ; 25.293 ns               ;
+; N/A                                     ; 39.17 MHz ( period = 25.530 ns )                    ; mandelbrot:math|x[-9]  ; mandelbrot:math|x[-10] ; CLOCK_24[0] ; CLOCK_24[0] ; None                        ; None                      ; 25.291 ns               ;
+; N/A                                     ; 39.17 MHz ( period = 25.530 ns )                    ; mandelbrot:math|x[-7]  ; mandelbrot:math|x[-9]  ; CLOCK_24[0] ; CLOCK_24[0] ; None                        ; None                      ; 25.291 ns               ;
+; Timing analysis restricted to 200 rows. ; To change the limit use Settings (Assignments menu) ;                        ;                        ;             ;             ;                             ;                           ;                         ;
++-----------------------------------------+-----------------------------------------------------+------------------------+------------------------+-------------+-------------+-----------------------------+---------------------------+-------------------------+
+
+
++--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; tsu                                                                                                                                                                            ;
++-----------------------------------------+-----------------------------------------------------+------------+--------+--------------------------------------------+-------------+
+; Slack                                   ; Required tsu                                        ; Actual tsu ; From   ; To                                         ; To Clock    ;
++-----------------------------------------+-----------------------------------------------------+------------+--------+--------------------------------------------+-------------+
+; N/A                                     ; None                                                ; 8.427 ns   ; KEY[3] ; control:ctrl|x_com_max[-15]                ; CLOCK_24[0] ;
+; N/A                                     ; None                                                ; 8.427 ns   ; KEY[3] ; control:ctrl|x_com_max[-14]                ; CLOCK_24[0] ;
+; N/A                                     ; None                                                ; 8.427 ns   ; KEY[3] ; control:ctrl|x_com_max[-13]                ; CLOCK_24[0] ;
+; N/A                                     ; None                                                ; 8.427 ns   ; KEY[3] ; control:ctrl|x_com_max[-16]                ; CLOCK_24[0] ;
+; N/A                                     ; None                                                ; 8.427 ns   ; KEY[3] ; control:ctrl|x_com_max[-17]                ; CLOCK_24[0] ;
+; N/A                                     ; None                                                ; 8.427 ns   ; KEY[3] ; control:ctrl|x_com_max[-18]                ; CLOCK_24[0] ;
+; N/A                                     ; None                                                ; 8.427 ns   ; KEY[3] ; control:ctrl|x_com_max[-19]                ; CLOCK_24[0] ;
+; N/A                                     ; None                                                ; 8.427 ns   ; KEY[3] ; control:ctrl|x_com_max[-20]                ; CLOCK_24[0] ;
+; N/A                                     ; None                                                ; 8.427 ns   ; KEY[3] ; control:ctrl|x_com_max[-21]                ; CLOCK_24[0] ;
+; N/A                                     ; None                                                ; 7.894 ns   ; KEY[3] ; control:ctrl|x_com_max[-1]                 ; CLOCK_24[0] ;
+; N/A                                     ; None                                                ; 7.870 ns   ; KEY[3] ; memory_control:memCtrl|VGA:vga0|VGA_R[1]   ; CLOCK_24[0] ;
+; N/A                                     ; None                                                ; 7.870 ns   ; KEY[3] ; memory_control:memCtrl|VGA:vga0|VGA_G[2]   ; CLOCK_24[0] ;
+; N/A                                     ; None                                                ; 7.870 ns   ; KEY[3] ; memory_control:memCtrl|VGA:vga0|VGA_B[0]   ; CLOCK_24[0] ;
+; N/A                                     ; None                                                ; 7.869 ns   ; KEY[3] ; memory_control:memCtrl|VGA:vga0|VGA_R[3]   ; CLOCK_24[0] ;
+; N/A                                     ; None                                                ; 7.867 ns   ; KEY[3] ; memory_control:memCtrl|VGA:vga0|VGA_B[1]   ; CLOCK_24[0] ;
+; N/A                                     ; None                                                ; 7.866 ns   ; KEY[3] ; memory_control:memCtrl|VGA:vga0|VGA_G[1]   ; CLOCK_24[0] ;
+; N/A                                     ; None                                                ; 7.862 ns   ; KEY[3] ; memory_control:memCtrl|VGA:vga0|VGA_R[0]   ; CLOCK_24[0] ;
+; N/A                                     ; None                                                ; 7.862 ns   ; KEY[3] ; memory_control:memCtrl|VGA:vga0|VGA_G[3]   ; CLOCK_24[0] ;
+; N/A                                     ; None                                                ; 7.861 ns   ; KEY[3] ; memory_control:memCtrl|VGA:vga0|VGA_R[2]   ; CLOCK_24[0] ;
+; N/A                                     ; None                                                ; 7.861 ns   ; KEY[3] ; memory_control:memCtrl|VGA:vga0|VGA_G[0]   ; CLOCK_24[0] ;
+; N/A                                     ; None                                                ; 7.861 ns   ; KEY[3] ; memory_control:memCtrl|VGA:vga0|VGA_B[3]   ; CLOCK_24[0] ;
+; N/A                                     ; None                                                ; 7.843 ns   ; KEY[3] ; control:ctrl|x_com_max[-29]                ; CLOCK_24[0] ;
+; N/A                                     ; None                                                ; 7.730 ns   ; KEY[3] ; control:ctrl|y_com_min[-32]                ; CLOCK_24[0] ;
+; N/A                                     ; None                                                ; 7.730 ns   ; KEY[3] ; control:ctrl|y_com_min[-27]                ; CLOCK_24[0] ;
+; N/A                                     ; None                                                ; 7.730 ns   ; KEY[3] ; control:ctrl|y_com_min[-26]                ; CLOCK_24[0] ;
+; N/A                                     ; None                                                ; 7.730 ns   ; KEY[3] ; control:ctrl|y_com_max[-27]                ; CLOCK_24[0] ;
+; N/A                                     ; None                                                ; 7.730 ns   ; KEY[3] ; control:ctrl|y_com_max[-26]                ; CLOCK_24[0] ;
+; N/A                                     ; None                                                ; 7.730 ns   ; KEY[3] ; control:ctrl|y_com_max[-32]                ; CLOCK_24[0] ;
+; N/A                                     ; None                                                ; 7.543 ns   ; KEY[3] ; memory_control:memCtrl|addr_read[5]        ; CLOCK_24[0] ;
+; N/A                                     ; None                                                ; 7.540 ns   ; KEY[3] ; control:ctrl|x_com_max[-22]                ; CLOCK_24[0] ;
+; N/A                                     ; None                                                ; 7.540 ns   ; KEY[3] ; control:ctrl|x_com_max[-24]                ; CLOCK_24[0] ;
+; N/A                                     ; None                                                ; 7.540 ns   ; KEY[3] ; control:ctrl|x_com_max[-23]                ; CLOCK_24[0] ;
+; N/A                                     ; None                                                ; 7.537 ns   ; KEY[3] ; control:ctrl|x_com_max[-30]                ; CLOCK_24[0] ;
+; N/A                                     ; None                                                ; 7.537 ns   ; KEY[3] ; control:ctrl|x_com_max[-28]                ; CLOCK_24[0] ;
+; N/A                                     ; None                                                ; 7.537 ns   ; KEY[3] ; control:ctrl|x_com_max[-27]                ; CLOCK_24[0] ;
+; N/A                                     ; None                                                ; 7.537 ns   ; KEY[3] ; control:ctrl|x_com_max[-26]                ; CLOCK_24[0] ;
+; N/A                                     ; None                                                ; 7.537 ns   ; KEY[3] ; control:ctrl|x_com_max[-25]                ; CLOCK_24[0] ;
+; N/A                                     ; None                                                ; 7.537 ns   ; KEY[3] ; control:ctrl|x_com_max[-32]                ; CLOCK_24[0] ;
+; N/A                                     ; None                                                ; 7.505 ns   ; KEY[3] ; control:ctrl|y_com_max[-14]                ; CLOCK_24[0] ;
+; N/A                                     ; None                                                ; 7.505 ns   ; KEY[3] ; control:ctrl|y_com_max[-13]                ; CLOCK_24[0] ;
+; N/A                                     ; None                                                ; 7.505 ns   ; KEY[3] ; control:ctrl|y_com_max[-12]                ; CLOCK_24[0] ;
+; N/A                                     ; None                                                ; 7.505 ns   ; KEY[3] ; control:ctrl|y_com_max[-11]                ; CLOCK_24[0] ;
+; N/A                                     ; None                                                ; 7.505 ns   ; KEY[3] ; control:ctrl|y_com_max[2]                  ; CLOCK_24[0] ;
+; N/A                                     ; None                                                ; 7.505 ns   ; KEY[3] ; control:ctrl|y_com_max[-10]                ; CLOCK_24[0] ;
+; N/A                                     ; None                                                ; 7.505 ns   ; KEY[3] ; control:ctrl|y_com_max[-9]                 ; CLOCK_24[0] ;
+; N/A                                     ; None                                                ; 7.505 ns   ; KEY[3] ; control:ctrl|y_com_max[-8]                 ; CLOCK_24[0] ;
+; N/A                                     ; None                                                ; 7.505 ns   ; KEY[3] ; control:ctrl|y_com_max[-7]                 ; CLOCK_24[0] ;
+; N/A                                     ; None                                                ; 7.505 ns   ; KEY[3] ; control:ctrl|y_com_max[-5]                 ; CLOCK_24[0] ;
+; N/A                                     ; None                                                ; 7.505 ns   ; KEY[3] ; control:ctrl|y_com_max[-4]                 ; CLOCK_24[0] ;
+; N/A                                     ; None                                                ; 7.505 ns   ; KEY[3] ; control:ctrl|y_com_max[-15]                ; CLOCK_24[0] ;
+; N/A                                     ; None                                                ; 7.505 ns   ; KEY[3] ; control:ctrl|y_com_max[-16]                ; CLOCK_24[0] ;
+; N/A                                     ; None                                                ; 7.505 ns   ; KEY[3] ; control:ctrl|y_com_max[-17]                ; CLOCK_24[0] ;
+; N/A                                     ; None                                                ; 7.505 ns   ; KEY[3] ; control:ctrl|y_com_max[-18]                ; CLOCK_24[0] ;
+; N/A                                     ; None                                                ; 7.505 ns   ; KEY[3] ; control:ctrl|y_com_max[-19]                ; CLOCK_24[0] ;
+; N/A                                     ; None                                                ; 7.444 ns   ; KEY[3] ; control:ctrl|y_com_max[-30]                ; CLOCK_24[0] ;
+; N/A                                     ; None                                                ; 7.444 ns   ; KEY[3] ; control:ctrl|y_com_max[-29]                ; CLOCK_24[0] ;
+; N/A                                     ; None                                                ; 7.444 ns   ; KEY[3] ; control:ctrl|y_com_max[-28]                ; CLOCK_24[0] ;
+; N/A                                     ; None                                                ; 7.444 ns   ; KEY[3] ; control:ctrl|y_com_max[-24]                ; CLOCK_24[0] ;
+; N/A                                     ; None                                                ; 7.444 ns   ; KEY[3] ; control:ctrl|y_com_max[-23]                ; CLOCK_24[0] ;
+; N/A                                     ; None                                                ; 7.301 ns   ; KEY[3] ; memory_control:memCtrl|data_vga            ; CLOCK_24[0] ;
+; N/A                                     ; None                                                ; 7.257 ns   ; KEY[3] ; control:ctrl|y_int_const[-32]              ; CLOCK_24[0] ;
+; N/A                                     ; None                                                ; 7.257 ns   ; KEY[3] ; control:ctrl|y_int_const[-28]              ; CLOCK_24[0] ;
+; N/A                                     ; None                                                ; 7.257 ns   ; KEY[3] ; control:ctrl|y_int_const[-27]              ; CLOCK_24[0] ;
+; N/A                                     ; None                                                ; 7.257 ns   ; KEY[3] ; control:ctrl|y_int_const[-26]              ; CLOCK_24[0] ;
+; N/A                                     ; None                                                ; 7.257 ns   ; KEY[3] ; control:ctrl|y_int_const[-24]              ; CLOCK_24[0] ;
+; N/A                                     ; None                                                ; 7.252 ns   ; KEY[3] ; control:ctrl|y_int_const[-13]              ; CLOCK_24[0] ;
+; N/A                                     ; None                                                ; 7.252 ns   ; KEY[3] ; control:ctrl|y_int_const[1]                ; CLOCK_24[0] ;
+; N/A                                     ; None                                                ; 7.252 ns   ; KEY[3] ; control:ctrl|y_int_const[-12]              ; CLOCK_24[0] ;
+; N/A                                     ; None                                                ; 7.252 ns   ; KEY[3] ; control:ctrl|y_int_const[-11]              ; CLOCK_24[0] ;
+; N/A                                     ; None                                                ; 7.252 ns   ; KEY[3] ; control:ctrl|y_int_const[-10]              ; CLOCK_24[0] ;
+; N/A                                     ; None                                                ; 7.252 ns   ; KEY[3] ; control:ctrl|y_int_const[-9]               ; CLOCK_24[0] ;
+; N/A                                     ; None                                                ; 7.252 ns   ; KEY[3] ; control:ctrl|y_int_const[-8]               ; CLOCK_24[0] ;
+; N/A                                     ; None                                                ; 7.252 ns   ; KEY[3] ; control:ctrl|y_int_const[-7]               ; CLOCK_24[0] ;
+; N/A                                     ; None                                                ; 7.252 ns   ; KEY[3] ; control:ctrl|y_int_const[-6]               ; CLOCK_24[0] ;
+; N/A                                     ; None                                                ; 7.252 ns   ; KEY[3] ; control:ctrl|y_int_const[-5]               ; CLOCK_24[0] ;
+; N/A                                     ; None                                                ; 7.252 ns   ; KEY[3] ; control:ctrl|y_int_const[-1]               ; CLOCK_24[0] ;
+; N/A                                     ; None                                                ; 7.252 ns   ; KEY[3] ; control:ctrl|y_int_const[-19]              ; CLOCK_24[0] ;
+; N/A                                     ; None                                                ; 7.245 ns   ; KEY[3] ; control:ctrl|x_int_const[-20]              ; CLOCK_24[0] ;
+; N/A                                     ; None                                                ; 7.245 ns   ; KEY[3] ; control:ctrl|x_int_const[-28]              ; CLOCK_24[0] ;
+; N/A                                     ; None                                                ; 7.245 ns   ; KEY[3] ; control:ctrl|x_int_const[-27]              ; CLOCK_24[0] ;
+; N/A                                     ; None                                                ; 7.245 ns   ; KEY[3] ; control:ctrl|x_int_const[-26]              ; CLOCK_24[0] ;
+; N/A                                     ; None                                                ; 7.245 ns   ; KEY[3] ; control:ctrl|x_int_const[-25]              ; CLOCK_24[0] ;
+; N/A                                     ; None                                                ; 7.245 ns   ; KEY[3] ; control:ctrl|x_int_const[-22]              ; CLOCK_24[0] ;
+; N/A                                     ; None                                                ; 7.245 ns   ; KEY[3] ; control:ctrl|x_int_const[-21]              ; CLOCK_24[0] ;
+; N/A                                     ; None                                                ; 7.217 ns   ; KEY[3] ; memory_control:memCtrl|VGA:vga0|VGA_B[2]   ; CLOCK_24[0] ;
+; N/A                                     ; None                                                ; 7.202 ns   ; KEY[3] ; control:ctrl|y_int_const[0]                ; CLOCK_24[0] ;
+; N/A                                     ; None                                                ; 7.202 ns   ; KEY[3] ; control:ctrl|y_int_const[2]                ; CLOCK_24[0] ;
+; N/A                                     ; None                                                ; 7.202 ns   ; KEY[3] ; control:ctrl|y_int_const[-4]               ; CLOCK_24[0] ;
+; N/A                                     ; None                                                ; 7.202 ns   ; KEY[3] ; control:ctrl|y_int_const[-3]               ; CLOCK_24[0] ;
+; N/A                                     ; None                                                ; 7.202 ns   ; KEY[3] ; control:ctrl|y_int_const[-2]               ; CLOCK_24[0] ;
+; N/A                                     ; None                                                ; 7.201 ns   ; KEY[3] ; control:ctrl|y_int_const[-25]              ; CLOCK_24[0] ;
+; N/A                                     ; None                                                ; 7.201 ns   ; KEY[3] ; control:ctrl|y_int_const[-23]              ; CLOCK_24[0] ;
+; N/A                                     ; None                                                ; 7.186 ns   ; KEY[3] ; control:ctrl|x_com_max[-31]                ; CLOCK_24[0] ;
+; N/A                                     ; None                                                ; 7.181 ns   ; KEY[3] ; control:ctrl|x_com_max[2]                  ; CLOCK_24[0] ;
+; N/A                                     ; None                                                ; 7.174 ns   ; KEY[3] ; control:ctrl|h_pixel[-32]                  ; CLOCK_24[0] ;
+; N/A                                     ; None                                                ; 7.135 ns   ; KEY[3] ; control:ctrl|h_pixel[-31]                  ; CLOCK_24[0] ;
+; N/A                                     ; None                                                ; 7.135 ns   ; KEY[3] ; control:ctrl|h_pixel[-30]                  ; CLOCK_24[0] ;
+; N/A                                     ; None                                                ; 7.135 ns   ; KEY[3] ; control:ctrl|h_pixel[-29]                  ; CLOCK_24[0] ;
+; N/A                                     ; None                                                ; 7.135 ns   ; KEY[3] ; control:ctrl|h_pixel[-28]                  ; CLOCK_24[0] ;
+; N/A                                     ; None                                                ; 7.135 ns   ; KEY[3] ; control:ctrl|h_pixel[-27]                  ; CLOCK_24[0] ;
+; N/A                                     ; None                                                ; 7.135 ns   ; KEY[3] ; control:ctrl|w_pixel[-32]                  ; CLOCK_24[0] ;
+; N/A                                     ; None                                                ; 7.135 ns   ; KEY[3] ; control:ctrl|w_pixel[-31]                  ; CLOCK_24[0] ;
+; N/A                                     ; None                                                ; 7.133 ns   ; KEY[3] ; memory_control:memCtrl|addr_write[0]       ; CLOCK_24[0] ;
+; N/A                                     ; None                                                ; 7.133 ns   ; KEY[3] ; memory_control:memCtrl|addr_write[8]       ; CLOCK_24[0] ;
+; N/A                                     ; None                                                ; 7.133 ns   ; KEY[3] ; memory_control:memCtrl|addr_write[1]       ; CLOCK_24[0] ;
+; N/A                                     ; None                                                ; 7.133 ns   ; KEY[3] ; memory_control:memCtrl|addr_write[3]       ; CLOCK_24[0] ;
+; N/A                                     ; None                                                ; 7.133 ns   ; KEY[3] ; memory_control:memCtrl|addr_write[2]       ; CLOCK_24[0] ;
+; N/A                                     ; None                                                ; 7.133 ns   ; KEY[3] ; memory_control:memCtrl|addr_write[7]       ; CLOCK_24[0] ;
+; N/A                                     ; None                                                ; 7.133 ns   ; KEY[3] ; memory_control:memCtrl|addr_write[6]       ; CLOCK_24[0] ;
+; N/A                                     ; None                                                ; 7.133 ns   ; KEY[3] ; memory_control:memCtrl|addr_write[5]       ; CLOCK_24[0] ;
+; N/A                                     ; None                                                ; 7.133 ns   ; KEY[3] ; memory_control:memCtrl|addr_write[4]       ; CLOCK_24[0] ;
+; N/A                                     ; None                                                ; 7.127 ns   ; KEY[3] ; control:ctrl|y_com_min[-16]                ; CLOCK_24[0] ;
+; N/A                                     ; None                                                ; 7.127 ns   ; KEY[3] ; control:ctrl|y_com_min[-15]                ; CLOCK_24[0] ;
+; N/A                                     ; None                                                ; 7.127 ns   ; KEY[3] ; control:ctrl|y_com_min[-14]                ; CLOCK_24[0] ;
+; N/A                                     ; None                                                ; 7.127 ns   ; KEY[3] ; control:ctrl|y_com_min[-13]                ; CLOCK_24[0] ;
+; N/A                                     ; None                                                ; 7.127 ns   ; KEY[3] ; control:ctrl|y_com_min[1]                  ; CLOCK_24[0] ;
+; N/A                                     ; None                                                ; 7.127 ns   ; KEY[3] ; control:ctrl|y_com_min[-12]                ; CLOCK_24[0] ;
+; N/A                                     ; None                                                ; 7.127 ns   ; KEY[3] ; control:ctrl|y_com_min[-11]                ; CLOCK_24[0] ;
+; N/A                                     ; None                                                ; 7.127 ns   ; KEY[3] ; control:ctrl|y_com_min[-10]                ; CLOCK_24[0] ;
+; N/A                                     ; None                                                ; 7.127 ns   ; KEY[3] ; control:ctrl|y_com_min[-9]                 ; CLOCK_24[0] ;
+; N/A                                     ; None                                                ; 7.127 ns   ; KEY[3] ; control:ctrl|y_com_min[-8]                 ; CLOCK_24[0] ;
+; N/A                                     ; None                                                ; 7.127 ns   ; KEY[3] ; control:ctrl|y_com_min[-7]                 ; CLOCK_24[0] ;
+; N/A                                     ; None                                                ; 7.127 ns   ; KEY[3] ; control:ctrl|y_com_min[-3]                 ; CLOCK_24[0] ;
+; N/A                                     ; None                                                ; 7.127 ns   ; KEY[3] ; control:ctrl|y_com_min[-20]                ; CLOCK_24[0] ;
+; N/A                                     ; None                                                ; 7.127 ns   ; KEY[3] ; control:ctrl|y_com_min[-19]                ; CLOCK_24[0] ;
+; N/A                                     ; None                                                ; 7.127 ns   ; KEY[3] ; control:ctrl|y_com_min[-18]                ; CLOCK_24[0] ;
+; N/A                                     ; None                                                ; 7.127 ns   ; KEY[3] ; control:ctrl|y_com_min[-17]                ; CLOCK_24[0] ;
+; N/A                                     ; None                                                ; 7.122 ns   ; KEY[3] ; control:ctrl|h_pixel[-19]                  ; CLOCK_24[0] ;
+; N/A                                     ; None                                                ; 7.122 ns   ; KEY[3] ; control:ctrl|h_pixel[-20]                  ; CLOCK_24[0] ;
+; N/A                                     ; None                                                ; 7.122 ns   ; KEY[3] ; control:ctrl|h_pixel[-21]                  ; CLOCK_24[0] ;
+; N/A                                     ; None                                                ; 7.122 ns   ; KEY[3] ; control:ctrl|y_com_min[-31]                ; CLOCK_24[0] ;
+; N/A                                     ; None                                                ; 7.122 ns   ; KEY[3] ; control:ctrl|y_com_min[-30]                ; CLOCK_24[0] ;
+; N/A                                     ; None                                                ; 7.122 ns   ; KEY[3] ; control:ctrl|y_com_min[-29]                ; CLOCK_24[0] ;
+; N/A                                     ; None                                                ; 7.122 ns   ; KEY[3] ; control:ctrl|y_com_min[-22]                ; CLOCK_24[0] ;
+; N/A                                     ; None                                                ; 7.122 ns   ; KEY[3] ; control:ctrl|y_com_min[-21]                ; CLOCK_24[0] ;
+; N/A                                     ; None                                                ; 7.122 ns   ; KEY[3] ; control:ctrl|h_pixel[-22]                  ; CLOCK_24[0] ;
+; N/A                                     ; None                                                ; 7.122 ns   ; KEY[3] ; control:ctrl|h_pixel[-23]                  ; CLOCK_24[0] ;
+; N/A                                     ; None                                                ; 7.054 ns   ; KEY[3] ; control:ctrl|y_com_min[3]                  ; CLOCK_24[0] ;
+; N/A                                     ; None                                                ; 7.054 ns   ; KEY[3] ; control:ctrl|y_com_max[3]                  ; CLOCK_24[0] ;
+; N/A                                     ; None                                                ; 7.054 ns   ; KEY[3] ; control:ctrl|y_com_max[-3]                 ; CLOCK_24[0] ;
+; N/A                                     ; None                                                ; 7.054 ns   ; KEY[3] ; control:ctrl|y_com_max[-2]                 ; CLOCK_24[0] ;
+; N/A                                     ; None                                                ; 7.054 ns   ; KEY[3] ; control:ctrl|y_com_max[1]                  ; CLOCK_24[0] ;
+; N/A                                     ; None                                                ; 7.051 ns   ; KEY[3] ; control:ctrl|y_com_min[0]                  ; CLOCK_24[0] ;
+; N/A                                     ; None                                                ; 7.051 ns   ; KEY[3] ; control:ctrl|y_com_min[-1]                 ; CLOCK_24[0] ;
+; N/A                                     ; None                                                ; 7.051 ns   ; KEY[3] ; control:ctrl|y_com_max[-6]                 ; CLOCK_24[0] ;
+; N/A                                     ; None                                                ; 7.051 ns   ; KEY[3] ; control:ctrl|y_com_max[-1]                 ; CLOCK_24[0] ;
+; N/A                                     ; None                                                ; 7.051 ns   ; KEY[3] ; control:ctrl|y_com_max[0]                  ; CLOCK_24[0] ;
+; N/A                                     ; None                                                ; 6.959 ns   ; KEY[3] ; control:ctrl|x_int_const[3]                ; CLOCK_24[0] ;
+; N/A                                     ; None                                                ; 6.959 ns   ; KEY[3] ; control:ctrl|y_int_const[3]                ; CLOCK_24[0] ;
+; N/A                                     ; None                                                ; 6.909 ns   ; KEY[3] ; memory_control:memCtrl|VGA:vga0|Vcount[6]  ; CLOCK_24[0] ;
+; N/A                                     ; None                                                ; 6.909 ns   ; KEY[3] ; memory_control:memCtrl|VGA:vga0|Vcount[8]  ; CLOCK_24[0] ;
+; N/A                                     ; None                                                ; 6.909 ns   ; KEY[3] ; memory_control:memCtrl|VGA:vga0|Vcount[7]  ; CLOCK_24[0] ;
+; N/A                                     ; None                                                ; 6.909 ns   ; KEY[3] ; memory_control:memCtrl|VGA:vga0|Vcount[5]  ; CLOCK_24[0] ;
+; N/A                                     ; None                                                ; 6.909 ns   ; KEY[3] ; memory_control:memCtrl|VGA:vga0|Vcount[0]  ; CLOCK_24[0] ;
+; N/A                                     ; None                                                ; 6.909 ns   ; KEY[3] ; memory_control:memCtrl|VGA:vga0|Vcount[9]  ; CLOCK_24[0] ;
+; N/A                                     ; None                                                ; 6.909 ns   ; KEY[3] ; memory_control:memCtrl|VGA:vga0|Vcount[10] ; CLOCK_24[0] ;
+; N/A                                     ; None                                                ; 6.909 ns   ; KEY[3] ; memory_control:memCtrl|VGA:vga0|Vcount[1]  ; CLOCK_24[0] ;
+; N/A                                     ; None                                                ; 6.909 ns   ; KEY[3] ; memory_control:memCtrl|VGA:vga0|Vcount[3]  ; CLOCK_24[0] ;
+; N/A                                     ; None                                                ; 6.909 ns   ; KEY[3] ; memory_control:memCtrl|VGA:vga0|Vcount[2]  ; CLOCK_24[0] ;
+; N/A                                     ; None                                                ; 6.909 ns   ; KEY[3] ; memory_control:memCtrl|VGA:vga0|Vcount[4]  ; CLOCK_24[0] ;
+; N/A                                     ; None                                                ; 6.903 ns   ; KEY[3] ; control:ctrl|x_com_max[0]                  ; CLOCK_24[0] ;
+; N/A                                     ; None                                                ; 6.894 ns   ; KEY[3] ; control:ctrl|x_com_max[3]                  ; CLOCK_24[0] ;
+; N/A                                     ; None                                                ; 6.894 ns   ; KEY[3] ; control:ctrl|x_com_max[1]                  ; CLOCK_24[0] ;
+; N/A                                     ; None                                                ; 6.894 ns   ; KEY[3] ; control:ctrl|x_com_max[-12]                ; CLOCK_24[0] ;
+; N/A                                     ; None                                                ; 6.894 ns   ; KEY[3] ; control:ctrl|x_com_max[-11]                ; CLOCK_24[0] ;
+; N/A                                     ; None                                                ; 6.894 ns   ; KEY[3] ; control:ctrl|x_com_max[-10]                ; CLOCK_24[0] ;
+; N/A                                     ; None                                                ; 6.894 ns   ; KEY[3] ; control:ctrl|x_com_max[-9]                 ; CLOCK_24[0] ;
+; N/A                                     ; None                                                ; 6.894 ns   ; KEY[3] ; control:ctrl|x_com_max[-8]                 ; CLOCK_24[0] ;
+; N/A                                     ; None                                                ; 6.894 ns   ; KEY[3] ; control:ctrl|x_com_max[-7]                 ; CLOCK_24[0] ;
+; N/A                                     ; None                                                ; 6.894 ns   ; KEY[3] ; control:ctrl|x_com_max[-6]                 ; CLOCK_24[0] ;
+; N/A                                     ; None                                                ; 6.894 ns   ; KEY[3] ; control:ctrl|x_com_max[-5]                 ; CLOCK_24[0] ;
+; N/A                                     ; None                                                ; 6.894 ns   ; KEY[3] ; control:ctrl|x_com_max[-4]                 ; CLOCK_24[0] ;
+; N/A                                     ; None                                                ; 6.894 ns   ; KEY[3] ; control:ctrl|x_com_max[-3]                 ; CLOCK_24[0] ;
+; N/A                                     ; None                                                ; 6.894 ns   ; KEY[3] ; control:ctrl|x_com_max[-2]                 ; CLOCK_24[0] ;
+; N/A                                     ; None                                                ; 6.893 ns   ; KEY[3] ; control:ctrl|y_int_const[-20]              ; CLOCK_24[0] ;
+; N/A                                     ; None                                                ; 6.893 ns   ; KEY[3] ; control:ctrl|y_int_const[-31]              ; CLOCK_24[0] ;
+; N/A                                     ; None                                                ; 6.893 ns   ; KEY[3] ; control:ctrl|y_int_const[-30]              ; CLOCK_24[0] ;
+; N/A                                     ; None                                                ; 6.893 ns   ; KEY[3] ; control:ctrl|y_int_const[-29]              ; CLOCK_24[0] ;
+; N/A                                     ; None                                                ; 6.893 ns   ; KEY[3] ; control:ctrl|y_int_const[-22]              ; CLOCK_24[0] ;
+; N/A                                     ; None                                                ; 6.893 ns   ; KEY[3] ; control:ctrl|y_int_const[-21]              ; CLOCK_24[0] ;
+; N/A                                     ; None                                                ; 6.844 ns   ; KEY[3] ; control:ctrl|x_int_const[0]                ; CLOCK_24[0] ;
+; N/A                                     ; None                                                ; 6.844 ns   ; KEY[3] ; control:ctrl|x_int_const[1]                ; CLOCK_24[0] ;
+; N/A                                     ; None                                                ; 6.844 ns   ; KEY[3] ; control:ctrl|x_int_const[2]                ; CLOCK_24[0] ;
+; N/A                                     ; None                                                ; 6.844 ns   ; KEY[3] ; control:ctrl|y_int_const[-16]              ; CLOCK_24[0] ;
+; N/A                                     ; None                                                ; 6.844 ns   ; KEY[3] ; control:ctrl|y_int_const[-15]              ; CLOCK_24[0] ;
+; N/A                                     ; None                                                ; 6.844 ns   ; KEY[3] ; control:ctrl|y_int_const[-14]              ; CLOCK_24[0] ;
+; N/A                                     ; None                                                ; 6.844 ns   ; KEY[3] ; control:ctrl|x_int_const[-7]               ; CLOCK_24[0] ;
+; N/A                                     ; None                                                ; 6.844 ns   ; KEY[3] ; control:ctrl|x_int_const[-5]               ; CLOCK_24[0] ;
+; N/A                                     ; None                                                ; 6.844 ns   ; KEY[3] ; control:ctrl|x_int_const[-3]               ; CLOCK_24[0] ;
+; N/A                                     ; None                                                ; 6.844 ns   ; KEY[3] ; control:ctrl|y_int_const[-18]              ; CLOCK_24[0] ;
+; N/A                                     ; None                                                ; 6.844 ns   ; KEY[3] ; control:ctrl|y_int_const[-17]              ; CLOCK_24[0] ;
+; N/A                                     ; None                                                ; 6.824 ns   ; KEY[3] ; control:ctrl|y_com_min[-28]                ; CLOCK_24[0] ;
+; N/A                                     ; None                                                ; 6.824 ns   ; KEY[3] ; control:ctrl|y_com_min[-25]                ; CLOCK_24[0] ;
+; N/A                                     ; None                                                ; 6.824 ns   ; KEY[3] ; control:ctrl|y_com_min[-24]                ; CLOCK_24[0] ;
+; N/A                                     ; None                                                ; 6.824 ns   ; KEY[3] ; control:ctrl|y_com_min[-23]                ; CLOCK_24[0] ;
+; N/A                                     ; None                                                ; 6.824 ns   ; KEY[3] ; memory_control:memCtrl|addr_read[2]        ; CLOCK_24[0] ;
+; N/A                                     ; None                                                ; 6.820 ns   ; KEY[3] ; memory_control:memCtrl|addr_read[4]        ; CLOCK_24[0] ;
+; N/A                                     ; None                                                ; 6.815 ns   ; KEY[3] ; memory_control:memCtrl|addr_read[6]        ; CLOCK_24[0] ;
+; N/A                                     ; None                                                ; 6.815 ns   ; KEY[3] ; memory_control:memCtrl|addr_read[7]        ; CLOCK_24[0] ;
+; N/A                                     ; None                                                ; 6.815 ns   ; KEY[3] ; memory_control:memCtrl|addr_read[8]        ; CLOCK_24[0] ;
+; Timing analysis restricted to 200 rows. ; To change the limit use Settings (Assignments menu) ;            ;        ;                                            ;             ;
++-----------------------------------------+-----------------------------------------------------+------------+--------+--------------------------------------------+-------------+
+
+
++------------------------------------------------------------------------------------------------------------+
+; tco                                                                                                        ;
++-------+--------------+------------+------------------------------------------+---------------+-------------+
+; Slack ; Required tco ; Actual tco ; From                                     ; To            ; From Clock  ;
++-------+--------------+------------+------------------------------------------+---------------+-------------+
+; N/A   ; None         ; 12.088 ns  ; mandelbrot:math|done                     ; SRAM_ADDR[5]  ; CLOCK_24[0] ;
+; N/A   ; None         ; 11.769 ns  ; mandelbrot:math|done                     ; SRAM_ADDR[10] ; CLOCK_24[0] ;
+; N/A   ; None         ; 11.740 ns  ; mandelbrot:math|done                     ; SRAM_ADDR[6]  ; CLOCK_24[0] ;
+; N/A   ; None         ; 11.727 ns  ; mandelbrot:math|done                     ; SRAM_ADDR[7]  ; CLOCK_24[0] ;
+; N/A   ; None         ; 11.689 ns  ; mandelbrot:math|done                     ; SRAM_ADDR[4]  ; CLOCK_24[0] ;
+; N/A   ; None         ; 11.660 ns  ; mandelbrot:math|done                     ; SRAM_ADDR[17] ; CLOCK_24[0] ;
+; N/A   ; None         ; 11.648 ns  ; mandelbrot:math|done                     ; SRAM_ADDR[2]  ; CLOCK_24[0] ;
+; N/A   ; None         ; 11.542 ns  ; mandelbrot:math|done                     ; SRAM_ADDR[1]  ; CLOCK_24[0] ;
+; N/A   ; None         ; 11.539 ns  ; mandelbrot:math|done                     ; SRAM_ADDR[0]  ; CLOCK_24[0] ;
+; N/A   ; None         ; 11.497 ns  ; mandelbrot:math|done                     ; SRAM_ADDR[13] ; CLOCK_24[0] ;
+; N/A   ; None         ; 11.462 ns  ; mandelbrot:math|done                     ; SRAM_ADDR[16] ; CLOCK_24[0] ;
+; N/A   ; None         ; 11.429 ns  ; mandelbrot:math|done                     ; SRAM_ADDR[9]  ; CLOCK_24[0] ;
+; N/A   ; None         ; 11.375 ns  ; mandelbrot:math|done                     ; SRAM_ADDR[8]  ; CLOCK_24[0] ;
+; N/A   ; None         ; 11.291 ns  ; mandelbrot:math|done                     ; SRAM_ADDR[3]  ; CLOCK_24[0] ;
+; N/A   ; None         ; 11.183 ns  ; mandelbrot:math|done                     ; SRAM_ADDR[11] ; CLOCK_24[0] ;
+; N/A   ; None         ; 11.166 ns  ; mandelbrot:math|done                     ; SRAM_ADDR[15] ; CLOCK_24[0] ;
+; N/A   ; None         ; 10.878 ns  ; mandelbrot:math|done                     ; SRAM_ADDR[12] ; CLOCK_24[0] ;
+; N/A   ; None         ; 10.859 ns  ; mandelbrot:math|done                     ; SRAM_ADDR[14] ; CLOCK_24[0] ;
+; N/A   ; None         ; 10.357 ns  ; mandelbrot:math|done                     ; SRAM_WE_N     ; CLOCK_24[0] ;
+; N/A   ; None         ; 10.287 ns  ; memory_control:memCtrl|addr_write[5]     ; SRAM_ADDR[5]  ; CLOCK_24[0] ;
+; N/A   ; None         ; 10.030 ns  ; mandelbrot:math|done                     ; SRAM_DQ[7]    ; CLOCK_24[0] ;
+; N/A   ; None         ; 10.027 ns  ; mandelbrot:math|done                     ; SRAM_DQ[6]    ; CLOCK_24[0] ;
+; N/A   ; None         ; 10.006 ns  ; mandelbrot:math|done                     ; SRAM_DQ[4]    ; CLOCK_24[0] ;
+; N/A   ; None         ; 9.699 ns   ; mandelbrot:math|done                     ; SRAM_DQ[5]    ; CLOCK_24[0] ;
+; N/A   ; None         ; 9.683 ns   ; mandelbrot:math|done                     ; SRAM_DQ[12]   ; CLOCK_24[0] ;
+; N/A   ; None         ; 9.657 ns   ; mandelbrot:math|done                     ; SRAM_DQ[11]   ; CLOCK_24[0] ;
+; N/A   ; None         ; 9.550 ns   ; mandelbrot:math|escape                   ; SRAM_DQ[6]    ; CLOCK_24[0] ;
+; N/A   ; None         ; 9.446 ns   ; mandelbrot:math|done                     ; SRAM_DQ[1]    ; CLOCK_24[0] ;
+; N/A   ; None         ; 9.436 ns   ; mandelbrot:math|done                     ; SRAM_DQ[0]    ; CLOCK_24[0] ;
+; N/A   ; None         ; 9.418 ns   ; mandelbrot:math|done                     ; SRAM_DQ[15]   ; CLOCK_24[0] ;
+; N/A   ; None         ; 9.410 ns   ; mandelbrot:math|done                     ; SRAM_DQ[3]    ; CLOCK_24[0] ;
+; N/A   ; None         ; 9.400 ns   ; mandelbrot:math|done                     ; SRAM_DQ[2]    ; CLOCK_24[0] ;
+; N/A   ; None         ; 9.380 ns   ; mandelbrot:math|done                     ; SRAM_DQ[9]    ; CLOCK_24[0] ;
+; N/A   ; None         ; 9.380 ns   ; mandelbrot:math|done                     ; SRAM_DQ[8]    ; CLOCK_24[0] ;
+; N/A   ; None         ; 9.375 ns   ; memory_control:memCtrl|addr_read[5]      ; SRAM_ADDR[5]  ; CLOCK_24[0] ;
+; N/A   ; None         ; 9.291 ns   ; mandelbrot:math|escape                   ; SRAM_DQ[7]    ; CLOCK_24[0] ;
+; N/A   ; None         ; 9.277 ns   ; mandelbrot:math|escape                   ; SRAM_DQ[4]    ; CLOCK_24[0] ;
+; N/A   ; None         ; 9.174 ns   ; memory_control:memCtrl|addr_read[6]      ; SRAM_ADDR[6]  ; CLOCK_24[0] ;
+; N/A   ; None         ; 9.158 ns   ; memory_control:memCtrl|addr_read[16]     ; SRAM_ADDR[16] ; CLOCK_24[0] ;
+; N/A   ; None         ; 8.995 ns   ; memory_control:memCtrl|addr_write[11]    ; SRAM_ADDR[11] ; CLOCK_24[0] ;
+; N/A   ; None         ; 8.916 ns   ; mandelbrot:math|escape                   ; SRAM_DQ[9]    ; CLOCK_24[0] ;
+; N/A   ; None         ; 8.916 ns   ; mandelbrot:math|escape                   ; SRAM_DQ[8]    ; CLOCK_24[0] ;
+; N/A   ; None         ; 8.916 ns   ; memory_control:memCtrl|addr_read[17]     ; SRAM_ADDR[17] ; CLOCK_24[0] ;
+; N/A   ; None         ; 8.914 ns   ; memory_control:memCtrl|addr_read[7]      ; SRAM_ADDR[7]  ; CLOCK_24[0] ;
+; N/A   ; None         ; 8.906 ns   ; mandelbrot:math|escape                   ; SRAM_DQ[11]   ; CLOCK_24[0] ;
+; N/A   ; None         ; 8.906 ns   ; memory_control:memCtrl|addr_write[7]     ; SRAM_ADDR[7]  ; CLOCK_24[0] ;
+; N/A   ; None         ; 8.902 ns   ; memory_control:memCtrl|VGA:vga0|int_hs   ; VGA_HS        ; CLOCK_24[0] ;
+; N/A   ; None         ; 8.892 ns   ; memory_control:memCtrl|VGA:vga0|int_vs   ; VGA_VS        ; CLOCK_24[0] ;
+; N/A   ; None         ; 8.888 ns   ; memory_control:memCtrl|addr_read[10]     ; SRAM_ADDR[10] ; CLOCK_24[0] ;
+; N/A   ; None         ; 8.888 ns   ; memory_control:memCtrl|VGA:vga0|VGA_B[1] ; VGA_B[1]      ; CLOCK_24[0] ;
+; N/A   ; None         ; 8.880 ns   ; memory_control:memCtrl|addr_write[9]     ; SRAM_ADDR[9]  ; CLOCK_24[0] ;
+; N/A   ; None         ; 8.873 ns   ; memory_control:memCtrl|addr_write[6]     ; SRAM_ADDR[6]  ; CLOCK_24[0] ;
+; N/A   ; None         ; 8.845 ns   ; memory_control:memCtrl|addr_write[3]     ; SRAM_ADDR[3]  ; CLOCK_24[0] ;
+; N/A   ; None         ; 8.802 ns   ; memory_control:memCtrl|addr_read[15]     ; SRAM_ADDR[15] ; CLOCK_24[0] ;
+; N/A   ; None         ; 8.799 ns   ; mandelbrot:math|done                     ; SRAM_DQ[14]   ; CLOCK_24[0] ;
+; N/A   ; None         ; 8.799 ns   ; mandelbrot:math|done                     ; SRAM_DQ[13]   ; CLOCK_24[0] ;
+; N/A   ; None         ; 8.789 ns   ; mandelbrot:math|done                     ; SRAM_DQ[10]   ; CLOCK_24[0] ;
+; N/A   ; None         ; 8.763 ns   ; memory_control:memCtrl|addr_write[1]     ; SRAM_ADDR[1]  ; CLOCK_24[0] ;
+; N/A   ; None         ; 8.726 ns   ; memory_control:memCtrl|addr_write[0]     ; SRAM_ADDR[0]  ; CLOCK_24[0] ;
+; N/A   ; None         ; 8.700 ns   ; mandelbrot:math|escape                   ; SRAM_DQ[5]    ; CLOCK_24[0] ;
+; N/A   ; None         ; 8.690 ns   ; mandelbrot:math|escape                   ; SRAM_DQ[12]   ; CLOCK_24[0] ;
+; N/A   ; None         ; 8.684 ns   ; memory_control:memCtrl|addr_write[13]    ; SRAM_ADDR[13] ; CLOCK_24[0] ;
+; N/A   ; None         ; 8.662 ns   ; memory_control:memCtrl|VGA:vga0|VGA_G[1] ; VGA_G[1]      ; CLOCK_24[0] ;
+; N/A   ; None         ; 8.650 ns   ; memory_control:memCtrl|addr_read[9]      ; SRAM_ADDR[9]  ; CLOCK_24[0] ;
+; N/A   ; None         ; 8.640 ns   ; memory_control:memCtrl|VGA:vga0|VGA_B[2] ; VGA_B[2]      ; CLOCK_24[0] ;
+; N/A   ; None         ; 8.637 ns   ; memory_control:memCtrl|addr_read[0]      ; SRAM_ADDR[0]  ; CLOCK_24[0] ;
+; N/A   ; None         ; 8.629 ns   ; memory_control:memCtrl|addr_read[1]      ; SRAM_ADDR[1]  ; CLOCK_24[0] ;
+; N/A   ; None         ; 8.623 ns   ; memory_control:memCtrl|addr_write[17]    ; SRAM_ADDR[17] ; CLOCK_24[0] ;
+; N/A   ; None         ; 8.621 ns   ; memory_control:memCtrl|addr_write[10]    ; SRAM_ADDR[10] ; CLOCK_24[0] ;
+; N/A   ; None         ; 8.616 ns   ; memory_control:memCtrl|addr_write[2]     ; SRAM_ADDR[2]  ; CLOCK_24[0] ;
+; N/A   ; None         ; 8.592 ns   ; memory_control:memCtrl|addr_read[8]      ; SRAM_ADDR[8]  ; CLOCK_24[0] ;
+; N/A   ; None         ; 8.589 ns   ; memory_control:memCtrl|addr_write[16]    ; SRAM_ADDR[16] ; CLOCK_24[0] ;
+; N/A   ; None         ; 8.572 ns   ; memory_control:memCtrl|addr_read[11]     ; SRAM_ADDR[11] ; CLOCK_24[0] ;
+; N/A   ; None         ; 8.543 ns   ; mandelbrot:math|escape                   ; SRAM_DQ[3]    ; CLOCK_24[0] ;
+; N/A   ; None         ; 8.533 ns   ; mandelbrot:math|escape                   ; SRAM_DQ[2]    ; CLOCK_24[0] ;
+; N/A   ; None         ; 8.523 ns   ; mandelbrot:math|escape                   ; SRAM_DQ[15]   ; CLOCK_24[0] ;
+; N/A   ; None         ; 8.513 ns   ; mandelbrot:math|escape                   ; SRAM_DQ[13]   ; CLOCK_24[0] ;
+; N/A   ; None         ; 8.503 ns   ; mandelbrot:math|escape                   ; SRAM_DQ[10]   ; CLOCK_24[0] ;
+; N/A   ; None         ; 8.483 ns   ; memory_control:memCtrl|addr_write[4]     ; SRAM_ADDR[4]  ; CLOCK_24[0] ;
+; N/A   ; None         ; 8.473 ns   ; memory_control:memCtrl|addr_write[12]    ; SRAM_ADDR[12] ; CLOCK_24[0] ;
+; N/A   ; None         ; 8.434 ns   ; memory_control:memCtrl|VGA:vga0|VGA_B[3] ; VGA_B[3]      ; CLOCK_24[0] ;
+; N/A   ; None         ; 8.400 ns   ; memory_control:memCtrl|addr_read[2]      ; SRAM_ADDR[2]  ; CLOCK_24[0] ;
+; N/A   ; None         ; 8.344 ns   ; memory_control:memCtrl|addr_write[8]     ; SRAM_ADDR[8]  ; CLOCK_24[0] ;
+; N/A   ; None         ; 8.339 ns   ; memory_control:memCtrl|addr_write[15]    ; SRAM_ADDR[15] ; CLOCK_24[0] ;
+; N/A   ; None         ; 8.337 ns   ; memory_control:memCtrl|VGA:vga0|VGA_G[2] ; VGA_G[2]      ; CLOCK_24[0] ;
+; N/A   ; None         ; 8.312 ns   ; memory_control:memCtrl|addr_read[4]      ; SRAM_ADDR[4]  ; CLOCK_24[0] ;
+; N/A   ; None         ; 8.295 ns   ; memory_control:memCtrl|VGA:vga0|VGA_R[1] ; VGA_R[1]      ; CLOCK_24[0] ;
+; N/A   ; None         ; 8.293 ns   ; memory_control:memCtrl|addr_read[12]     ; SRAM_ADDR[12] ; CLOCK_24[0] ;
+; N/A   ; None         ; 8.239 ns   ; memory_control:memCtrl|addr_read[14]     ; SRAM_ADDR[14] ; CLOCK_24[0] ;
+; N/A   ; None         ; 8.210 ns   ; memory_control:memCtrl|addr_read[13]     ; SRAM_ADDR[13] ; CLOCK_24[0] ;
+; N/A   ; None         ; 8.074 ns   ; memory_control:memCtrl|VGA:vga0|VGA_R[2] ; VGA_R[2]      ; CLOCK_24[0] ;
+; N/A   ; None         ; 8.059 ns   ; memory_control:memCtrl|VGA:vga0|VGA_G[3] ; VGA_G[3]      ; CLOCK_24[0] ;
+; N/A   ; None         ; 8.058 ns   ; memory_control:memCtrl|VGA:vga0|VGA_G[0] ; VGA_G[0]      ; CLOCK_24[0] ;
+; N/A   ; None         ; 8.038 ns   ; memory_control:memCtrl|VGA:vga0|VGA_R[0] ; VGA_R[0]      ; CLOCK_24[0] ;
+; N/A   ; None         ; 8.008 ns   ; memory_control:memCtrl|VGA:vga0|VGA_R[3] ; VGA_R[3]      ; CLOCK_24[0] ;
+; N/A   ; None         ; 8.006 ns   ; mandelbrot:math|escape                   ; SRAM_DQ[1]    ; CLOCK_24[0] ;
+; N/A   ; None         ; 7.996 ns   ; mandelbrot:math|escape                   ; SRAM_DQ[0]    ; CLOCK_24[0] ;
+; N/A   ; None         ; 7.989 ns   ; memory_control:memCtrl|addr_read[3]      ; SRAM_ADDR[3]  ; CLOCK_24[0] ;
+; N/A   ; None         ; 7.976 ns   ; mandelbrot:math|escape                   ; SRAM_DQ[14]   ; CLOCK_24[0] ;
+; N/A   ; None         ; 7.834 ns   ; memory_control:memCtrl|addr_write[14]    ; SRAM_ADDR[14] ; CLOCK_24[0] ;
+; N/A   ; None         ; 7.818 ns   ; memory_control:memCtrl|VGA:vga0|VGA_B[0] ; VGA_B[0]      ; CLOCK_24[0] ;
+; N/A   ; None         ; 7.221 ns   ; memory_control:memCtrl|LB_N              ; SRAM_LB_N     ; CLOCK_24[0] ;
+; N/A   ; None         ; 7.187 ns   ; memory_control:memCtrl|UB_N              ; SRAM_UB_N     ; CLOCK_24[0] ;
++-------+--------------+------------+------------------------------------------+---------------+-------------+
+
+
++---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; th                                                                                                                                                                              ;
++-----------------------------------------+-----------------------------------------------------+-----------+-------------+-----------------------------------------+-------------+
+; Minimum Slack                           ; Required th                                         ; Actual th ; From        ; To                                      ; To Clock    ;
++-----------------------------------------+-----------------------------------------------------+-----------+-------------+-----------------------------------------+-------------+
+; N/A                                     ; None                                                ; -3.963 ns ; KEY[0]      ; control:ctrl|edge:detector3|old         ; CLOCK_24[0] ;
+; N/A                                     ; None                                                ; -4.119 ns ; KEY[1]      ; control:ctrl|edge:detector1|old         ; CLOCK_24[0] ;
+; N/A                                     ; None                                                ; -4.121 ns ; KEY[1]      ; control:ctrl|edge:detector1|e           ; CLOCK_24[0] ;
+; N/A                                     ; None                                                ; -4.260 ns ; KEY[3]      ; control:ctrl|cur_state.Write_Pixel      ; CLOCK_24[0] ;
+; N/A                                     ; None                                                ; -4.264 ns ; KEY[3]      ; control:ctrl|cur_state.Write_Pixel_Wait ; CLOCK_24[0] ;
+; N/A                                     ; None                                                ; -4.343 ns ; KEY[2]      ; control:ctrl|edge:detector2|old         ; CLOCK_24[0] ;
+; N/A                                     ; None                                                ; -4.378 ns ; KEY[3]      ; control:ctrl|WE_const                   ; CLOCK_24[0] ;
+; N/A                                     ; None                                                ; -4.410 ns ; KEY[2]      ; control:ctrl|edge:detector2|e           ; CLOCK_24[0] ;
+; N/A                                     ; None                                                ; -4.467 ns ; SRAM_DQ[9]  ; memory_control:memCtrl|data_vga         ; CLOCK_24[0] ;
+; N/A                                     ; None                                                ; -4.495 ns ; KEY[3]      ; control:ctrl|x_com_min[-32]             ; CLOCK_24[0] ;
+; N/A                                     ; None                                                ; -4.495 ns ; KEY[3]      ; control:ctrl|x_com_min[-31]             ; CLOCK_24[0] ;
+; N/A                                     ; None                                                ; -4.495 ns ; KEY[3]      ; control:ctrl|x_com_min[-30]             ; CLOCK_24[0] ;
+; N/A                                     ; None                                                ; -4.495 ns ; KEY[3]      ; control:ctrl|x_com_min[-29]             ; CLOCK_24[0] ;
+; N/A                                     ; None                                                ; -4.495 ns ; KEY[3]      ; control:ctrl|x_com_min[-28]             ; CLOCK_24[0] ;
+; N/A                                     ; None                                                ; -4.507 ns ; KEY[3]      ; control:ctrl|x_int_const[-16]           ; CLOCK_24[0] ;
+; N/A                                     ; None                                                ; -4.507 ns ; KEY[3]      ; control:ctrl|x_int_const[-6]            ; CLOCK_24[0] ;
+; N/A                                     ; None                                                ; -4.507 ns ; KEY[3]      ; control:ctrl|x_int_const[-4]            ; CLOCK_24[0] ;
+; N/A                                     ; None                                                ; -4.507 ns ; KEY[3]      ; control:ctrl|x_int_const[-2]            ; CLOCK_24[0] ;
+; N/A                                     ; None                                                ; -4.507 ns ; KEY[3]      ; control:ctrl|x_int_const[-1]            ; CLOCK_24[0] ;
+; N/A                                     ; None                                                ; -4.542 ns ; SRAM_DQ[8]  ; memory_control:memCtrl|data_vga         ; CLOCK_24[0] ;
+; N/A                                     ; None                                                ; -4.543 ns ; KEY[3]      ; control:ctrl|cur_state.Final            ; CLOCK_24[0] ;
+; N/A                                     ; None                                                ; -4.543 ns ; KEY[3]      ; control:ctrl|x_com_min[-16]             ; CLOCK_24[0] ;
+; N/A                                     ; None                                                ; -4.543 ns ; KEY[3]      ; control:ctrl|x_com_min[-19]             ; CLOCK_24[0] ;
+; N/A                                     ; None                                                ; -4.543 ns ; KEY[3]      ; control:ctrl|x_com_min[-18]             ; CLOCK_24[0] ;
+; N/A                                     ; None                                                ; -4.543 ns ; KEY[3]      ; control:ctrl|x_com_min[-17]             ; CLOCK_24[0] ;
+; N/A                                     ; None                                                ; -4.543 ns ; KEY[3]      ; control:ctrl|x_com_min[-27]             ; CLOCK_24[0] ;
+; N/A                                     ; None                                                ; -4.574 ns ; KEY[3]      ; control:ctrl|x_int_const[-15]           ; CLOCK_24[0] ;
+; N/A                                     ; None                                                ; -4.574 ns ; KEY[3]      ; control:ctrl|x_int_const[-14]           ; CLOCK_24[0] ;
+; N/A                                     ; None                                                ; -4.574 ns ; KEY[3]      ; control:ctrl|x_int_const[-13]           ; CLOCK_24[0] ;
+; N/A                                     ; None                                                ; -4.574 ns ; KEY[3]      ; control:ctrl|x_int_const[-12]           ; CLOCK_24[0] ;
+; N/A                                     ; None                                                ; -4.574 ns ; KEY[3]      ; control:ctrl|x_int_const[-11]           ; CLOCK_24[0] ;
+; N/A                                     ; None                                                ; -4.574 ns ; KEY[3]      ; control:ctrl|x_int_const[-10]           ; CLOCK_24[0] ;
+; N/A                                     ; None                                                ; -4.574 ns ; KEY[3]      ; control:ctrl|x_int_const[-9]            ; CLOCK_24[0] ;
+; N/A                                     ; None                                                ; -4.574 ns ; KEY[3]      ; control:ctrl|x_int_const[-8]            ; CLOCK_24[0] ;
+; N/A                                     ; None                                                ; -4.574 ns ; KEY[3]      ; control:ctrl|x_int_const[-19]           ; CLOCK_24[0] ;
+; N/A                                     ; None                                                ; -4.574 ns ; KEY[3]      ; control:ctrl|x_int_const[-18]           ; CLOCK_24[0] ;
+; N/A                                     ; None                                                ; -4.574 ns ; KEY[3]      ; control:ctrl|x_int_const[-17]           ; CLOCK_24[0] ;
+; N/A                                     ; None                                                ; -4.574 ns ; KEY[3]      ; control:ctrl|x_int_const[-24]           ; CLOCK_24[0] ;
+; N/A                                     ; None                                                ; -4.583 ns ; KEY[3]      ; control:ctrl|y_com_min[-6]              ; CLOCK_24[0] ;
+; N/A                                     ; None                                                ; -4.584 ns ; KEY[3]      ; control:ctrl|y_com_min[-2]              ; CLOCK_24[0] ;
+; N/A                                     ; None                                                ; -4.585 ns ; KEY[3]      ; control:ctrl|y_com_min[2]               ; CLOCK_24[0] ;
+; N/A                                     ; None                                                ; -4.585 ns ; KEY[3]      ; control:ctrl|y_com_min[-4]              ; CLOCK_24[0] ;
+; N/A                                     ; None                                                ; -4.602 ns ; KEY[0]      ; control:ctrl|edge:detector3|e           ; CLOCK_24[0] ;
+; N/A                                     ; None                                                ; -4.616 ns ; KEY[3]      ; control:ctrl|cur_state.Write_Memory     ; CLOCK_24[0] ;
+; N/A                                     ; None                                                ; -4.652 ns ; KEY[3]      ; memory_control:memCtrl|addr_read[2]     ; CLOCK_24[0] ;
+; N/A                                     ; None                                                ; -4.666 ns ; KEY[3]      ; control:ctrl|x_com_min[1]               ; CLOCK_24[0] ;
+; N/A                                     ; None                                                ; -4.666 ns ; KEY[3]      ; control:ctrl|x_com_min[2]               ; CLOCK_24[0] ;
+; N/A                                     ; None                                                ; -4.666 ns ; KEY[3]      ; control:ctrl|x_com_min[3]               ; CLOCK_24[0] ;
+; N/A                                     ; None                                                ; -4.666 ns ; KEY[3]      ; control:ctrl|h_pixel[-8]                ; CLOCK_24[0] ;
+; N/A                                     ; None                                                ; -4.739 ns ; KEY[3]      ; control:ctrl|h_pixel[-14]               ; CLOCK_24[0] ;
+; N/A                                     ; None                                                ; -4.739 ns ; KEY[3]      ; control:ctrl|y_com_max[-25]             ; CLOCK_24[0] ;
+; N/A                                     ; None                                                ; -4.740 ns ; KEY[3]      ; control:ctrl|y_com_max[-21]             ; CLOCK_24[0] ;
+; N/A                                     ; None                                                ; -4.744 ns ; KEY[3]      ; control:ctrl|h_pixel[-9]                ; CLOCK_24[0] ;
+; N/A                                     ; None                                                ; -4.744 ns ; KEY[3]      ; control:ctrl|y_com_max[-31]             ; CLOCK_24[0] ;
+; N/A                                     ; None                                                ; -4.748 ns ; KEY[3]      ; control:ctrl|h_pixel[-11]               ; CLOCK_24[0] ;
+; N/A                                     ; None                                                ; -4.748 ns ; KEY[3]      ; control:ctrl|h_pixel[-10]               ; CLOCK_24[0] ;
+; N/A                                     ; None                                                ; -4.752 ns ; KEY[3]      ; control:ctrl|w_pixel[-11]               ; CLOCK_24[0] ;
+; N/A                                     ; None                                                ; -4.755 ns ; KEY[3]      ; control:ctrl|w_pixel[-14]               ; CLOCK_24[0] ;
+; N/A                                     ; None                                                ; -4.755 ns ; KEY[3]      ; control:ctrl|y_com_max[-20]             ; CLOCK_24[0] ;
+; N/A                                     ; None                                                ; -4.757 ns ; KEY[3]      ; control:ctrl|w_pixel[-12]               ; CLOCK_24[0] ;
+; N/A                                     ; None                                                ; -4.757 ns ; KEY[3]      ; control:ctrl|y_com_max[-22]             ; CLOCK_24[0] ;
+; N/A                                     ; None                                                ; -4.759 ns ; KEY[3]      ; control:ctrl|h_pixel[-15]               ; CLOCK_24[0] ;
+; N/A                                     ; None                                                ; -4.759 ns ; KEY[3]      ; control:ctrl|h_pixel[-13]               ; CLOCK_24[0] ;
+; N/A                                     ; None                                                ; -4.759 ns ; KEY[3]      ; control:ctrl|h_pixel[-12]               ; CLOCK_24[0] ;
+; N/A                                     ; None                                                ; -4.759 ns ; KEY[3]      ; control:ctrl|w_pixel[-13]               ; CLOCK_24[0] ;
+; N/A                                     ; None                                                ; -4.763 ns ; KEY[3]      ; control:ctrl|w_pixel[-15]               ; CLOCK_24[0] ;
+; N/A                                     ; None                                                ; -4.763 ns ; KEY[3]      ; control:ctrl|h_pixel[-17]               ; CLOCK_24[0] ;
+; N/A                                     ; None                                                ; -4.763 ns ; KEY[3]      ; control:ctrl|w_pixel[-17]               ; CLOCK_24[0] ;
+; N/A                                     ; None                                                ; -4.767 ns ; KEY[3]      ; control:ctrl|w_pixel[-16]               ; CLOCK_24[0] ;
+; N/A                                     ; None                                                ; -4.767 ns ; KEY[3]      ; control:ctrl|w_pixel[-21]               ; CLOCK_24[0] ;
+; N/A                                     ; None                                                ; -4.771 ns ; KEY[3]      ; control:ctrl|w_pixel[-22]               ; CLOCK_24[0] ;
+; N/A                                     ; None                                                ; -4.771 ns ; KEY[3]      ; control:ctrl|w_pixel[-23]               ; CLOCK_24[0] ;
+; N/A                                     ; None                                                ; -4.775 ns ; KEY[3]      ; control:ctrl|w_pixel[-20]               ; CLOCK_24[0] ;
+; N/A                                     ; None                                                ; -4.777 ns ; KEY[3]      ; control:ctrl|x_com_min[-15]             ; CLOCK_24[0] ;
+; N/A                                     ; None                                                ; -4.777 ns ; KEY[3]      ; control:ctrl|x_com_min[-14]             ; CLOCK_24[0] ;
+; N/A                                     ; None                                                ; -4.777 ns ; KEY[3]      ; control:ctrl|x_com_min[-13]             ; CLOCK_24[0] ;
+; N/A                                     ; None                                                ; -4.777 ns ; KEY[3]      ; control:ctrl|x_com_min[-12]             ; CLOCK_24[0] ;
+; N/A                                     ; None                                                ; -4.777 ns ; KEY[3]      ; control:ctrl|x_com_min[-11]             ; CLOCK_24[0] ;
+; N/A                                     ; None                                                ; -4.777 ns ; KEY[3]      ; control:ctrl|x_com_min[-10]             ; CLOCK_24[0] ;
+; N/A                                     ; None                                                ; -4.777 ns ; KEY[3]      ; control:ctrl|x_com_min[-9]              ; CLOCK_24[0] ;
+; N/A                                     ; None                                                ; -4.777 ns ; KEY[3]      ; control:ctrl|x_com_min[-8]              ; CLOCK_24[0] ;
+; N/A                                     ; None                                                ; -4.777 ns ; KEY[3]      ; control:ctrl|x_com_min[-7]              ; CLOCK_24[0] ;
+; N/A                                     ; None                                                ; -4.777 ns ; KEY[3]      ; control:ctrl|x_com_min[-5]              ; CLOCK_24[0] ;
+; N/A                                     ; None                                                ; -4.777 ns ; KEY[3]      ; control:ctrl|x_com_min[-4]              ; CLOCK_24[0] ;
+; N/A                                     ; None                                                ; -4.777 ns ; KEY[3]      ; control:ctrl|x_com_min[-3]              ; CLOCK_24[0] ;
+; N/A                                     ; None                                                ; -4.777 ns ; KEY[3]      ; control:ctrl|x_com_min[-2]              ; CLOCK_24[0] ;
+; N/A                                     ; None                                                ; -4.777 ns ; KEY[3]      ; control:ctrl|x_com_min[-24]             ; CLOCK_24[0] ;
+; N/A                                     ; None                                                ; -4.778 ns ; KEY[3]      ; control:ctrl|w_pixel[-19]               ; CLOCK_24[0] ;
+; N/A                                     ; None                                                ; -4.778 ns ; KEY[3]      ; control:ctrl|h_pixel[-24]               ; CLOCK_24[0] ;
+; N/A                                     ; None                                                ; -4.780 ns ; KEY[3]      ; control:ctrl|w_pixel[-18]               ; CLOCK_24[0] ;
+; N/A                                     ; None                                                ; -4.780 ns ; KEY[3]      ; control:ctrl|h_pixel[-25]               ; CLOCK_24[0] ;
+; N/A                                     ; None                                                ; -4.781 ns ; KEY[3]      ; control:ctrl|h_pixel[-18]               ; CLOCK_24[0] ;
+; N/A                                     ; None                                                ; -4.781 ns ; KEY[3]      ; control:ctrl|w_pixel[-24]               ; CLOCK_24[0] ;
+; N/A                                     ; None                                                ; -4.782 ns ; KEY[3]      ; control:ctrl|h_pixel[-16]               ; CLOCK_24[0] ;
+; N/A                                     ; None                                                ; -4.782 ns ; KEY[3]      ; control:ctrl|h_pixel[-26]               ; CLOCK_24[0] ;
+; N/A                                     ; None                                                ; -4.790 ns ; KEY[3]      ; control:ctrl|x_com_min[-20]             ; CLOCK_24[0] ;
+; N/A                                     ; None                                                ; -4.828 ns ; KEY[3]      ; control:ctrl|write_counter[4]           ; CLOCK_24[0] ;
+; N/A                                     ; None                                                ; -4.828 ns ; KEY[3]      ; control:ctrl|write_counter[5]           ; CLOCK_24[0] ;
+; N/A                                     ; None                                                ; -4.828 ns ; KEY[3]      ; control:ctrl|write_counter[3]           ; CLOCK_24[0] ;
+; N/A                                     ; None                                                ; -4.828 ns ; KEY[3]      ; control:ctrl|write_counter[2]           ; CLOCK_24[0] ;
+; N/A                                     ; None                                                ; -4.828 ns ; KEY[3]      ; control:ctrl|write_counter[6]           ; CLOCK_24[0] ;
+; N/A                                     ; None                                                ; -4.828 ns ; KEY[3]      ; control:ctrl|write_counter[7]           ; CLOCK_24[0] ;
+; N/A                                     ; None                                                ; -4.828 ns ; KEY[3]      ; control:ctrl|x_int_const[3]             ; CLOCK_24[0] ;
+; N/A                                     ; None                                                ; -4.828 ns ; KEY[3]      ; control:ctrl|y_int_const[3]             ; CLOCK_24[0] ;
+; N/A                                     ; None                                                ; -4.856 ns ; KEY[3]      ; control:ctrl|cur_state.Start            ; CLOCK_24[0] ;
+; N/A                                     ; None                                                ; -4.908 ns ; KEY[3]      ; control:ctrl|x_com_max[-30]             ; CLOCK_24[0] ;
+; N/A                                     ; None                                                ; -4.908 ns ; KEY[3]      ; control:ctrl|x_com_max[-28]             ; CLOCK_24[0] ;
+; N/A                                     ; None                                                ; -4.908 ns ; KEY[3]      ; control:ctrl|x_com_max[-27]             ; CLOCK_24[0] ;
+; N/A                                     ; None                                                ; -4.908 ns ; KEY[3]      ; control:ctrl|x_com_max[-26]             ; CLOCK_24[0] ;
+; N/A                                     ; None                                                ; -4.908 ns ; KEY[3]      ; control:ctrl|x_com_max[-25]             ; CLOCK_24[0] ;
+; N/A                                     ; None                                                ; -4.908 ns ; KEY[3]      ; control:ctrl|x_com_max[-32]             ; CLOCK_24[0] ;
+; N/A                                     ; None                                                ; -4.926 ns ; KEY[3]      ; control:ctrl|write_counter[0]           ; CLOCK_24[0] ;
+; N/A                                     ; None                                                ; -4.926 ns ; KEY[3]      ; control:ctrl|write_counter[1]           ; CLOCK_24[0] ;
+; N/A                                     ; None                                                ; -4.926 ns ; KEY[3]      ; control:ctrl|write_counter[9]           ; CLOCK_24[0] ;
+; N/A                                     ; None                                                ; -4.926 ns ; KEY[3]      ; control:ctrl|write_counter[8]           ; CLOCK_24[0] ;
+; N/A                                     ; None                                                ; -4.926 ns ; KEY[3]      ; control:ctrl|x_com_max[-31]             ; CLOCK_24[0] ;
+; N/A                                     ; None                                                ; -4.930 ns ; KEY[3]      ; memory_control:memCtrl|ub               ; CLOCK_24[0] ;
+; N/A                                     ; None                                                ; -4.943 ns ; KEY[3]      ; memory_control:memCtrl|data_vga         ; CLOCK_24[0] ;
+; N/A                                     ; None                                                ; -4.950 ns ; KEY[3]      ; memory_control:memCtrl|addr_read[4]     ; CLOCK_24[0] ;
+; N/A                                     ; None                                                ; -4.967 ns ; KEY[3]      ; control:ctrl|h_pixel[-32]               ; CLOCK_24[0] ;
+; N/A                                     ; None                                                ; -5.041 ns ; KEY[3]      ; control:ctrl|x_com_min[-21]             ; CLOCK_24[0] ;
+; N/A                                     ; None                                                ; -5.099 ns ; KEY[3]      ; control:ctrl|x_com_min[-26]             ; CLOCK_24[0] ;
+; N/A                                     ; None                                                ; -5.099 ns ; KEY[3]      ; control:ctrl|x_com_min[-25]             ; CLOCK_24[0] ;
+; N/A                                     ; None                                                ; -5.099 ns ; KEY[3]      ; control:ctrl|x_com_min[-22]             ; CLOCK_24[0] ;
+; N/A                                     ; None                                                ; -5.106 ns ; KEY[3]      ; memory_control:memCtrl|addr_read[0]     ; CLOCK_24[0] ;
+; N/A                                     ; None                                                ; -5.112 ns ; KEY[3]      ; control:ctrl|w_pixel[-29]               ; CLOCK_24[0] ;
+; N/A                                     ; None                                                ; -5.112 ns ; KEY[3]      ; control:ctrl|w_pixel[-27]               ; CLOCK_24[0] ;
+; N/A                                     ; None                                                ; -5.113 ns ; KEY[3]      ; memory_control:memCtrl|addr_read[1]     ; CLOCK_24[0] ;
+; N/A                                     ; None                                                ; -5.115 ns ; KEY[3]      ; memory_control:memCtrl|addr_read[3]     ; CLOCK_24[0] ;
+; N/A                                     ; None                                                ; -5.134 ns ; KEY[3]      ; control:ctrl|x_com_max[-22]             ; CLOCK_24[0] ;
+; N/A                                     ; None                                                ; -5.134 ns ; KEY[3]      ; control:ctrl|x_com_max[-24]             ; CLOCK_24[0] ;
+; N/A                                     ; None                                                ; -5.134 ns ; KEY[3]      ; control:ctrl|x_com_max[-23]             ; CLOCK_24[0] ;
+; N/A                                     ; None                                                ; -5.151 ns ; SRAM_DQ[10] ; memory_control:memCtrl|data_vga         ; CLOCK_24[0] ;
+; N/A                                     ; None                                                ; -5.185 ns ; KEY[3]      ; control:ctrl|x_com_min[0]               ; CLOCK_24[0] ;
+; N/A                                     ; None                                                ; -5.185 ns ; KEY[3]      ; control:ctrl|x_com_min[-6]              ; CLOCK_24[0] ;
+; N/A                                     ; None                                                ; -5.185 ns ; KEY[3]      ; control:ctrl|x_com_min[-1]              ; CLOCK_24[0] ;
+; N/A                                     ; None                                                ; -5.185 ns ; KEY[3]      ; control:ctrl|x_com_max[-1]              ; CLOCK_24[0] ;
+; N/A                                     ; None                                                ; -5.185 ns ; KEY[3]      ; control:ctrl|x_com_min[-23]             ; CLOCK_24[0] ;
+; N/A                                     ; None                                                ; -5.191 ns ; KEY[3]      ; control:ctrl|x_int_const[-32]           ; CLOCK_24[0] ;
+; N/A                                     ; None                                                ; -5.191 ns ; KEY[3]      ; control:ctrl|x_int_const[-31]           ; CLOCK_24[0] ;
+; N/A                                     ; None                                                ; -5.191 ns ; KEY[3]      ; control:ctrl|x_int_const[-30]           ; CLOCK_24[0] ;
+; N/A                                     ; None                                                ; -5.191 ns ; KEY[3]      ; control:ctrl|x_int_const[-29]           ; CLOCK_24[0] ;
+; N/A                                     ; None                                                ; -5.191 ns ; KEY[3]      ; control:ctrl|x_int_const[-23]           ; CLOCK_24[0] ;
+; N/A                                     ; None                                                ; -5.209 ns ; KEY[3]      ; control:ctrl|x_int_const[0]             ; CLOCK_24[0] ;
+; N/A                                     ; None                                                ; -5.209 ns ; KEY[3]      ; control:ctrl|x_int_const[1]             ; CLOCK_24[0] ;
+; N/A                                     ; None                                                ; -5.209 ns ; KEY[3]      ; control:ctrl|x_int_const[2]             ; CLOCK_24[0] ;
+; N/A                                     ; None                                                ; -5.209 ns ; KEY[3]      ; control:ctrl|y_int_const[-16]           ; CLOCK_24[0] ;
+; N/A                                     ; None                                                ; -5.209 ns ; KEY[3]      ; control:ctrl|y_int_const[-15]           ; CLOCK_24[0] ;
+; N/A                                     ; None                                                ; -5.209 ns ; KEY[3]      ; control:ctrl|y_int_const[-14]           ; CLOCK_24[0] ;
+; N/A                                     ; None                                                ; -5.209 ns ; KEY[3]      ; control:ctrl|x_int_const[-7]            ; CLOCK_24[0] ;
+; N/A                                     ; None                                                ; -5.209 ns ; KEY[3]      ; control:ctrl|x_int_const[-5]            ; CLOCK_24[0] ;
+; N/A                                     ; None                                                ; -5.209 ns ; KEY[3]      ; control:ctrl|x_int_const[-3]            ; CLOCK_24[0] ;
+; N/A                                     ; None                                                ; -5.209 ns ; KEY[3]      ; control:ctrl|y_int_const[-18]           ; CLOCK_24[0] ;
+; N/A                                     ; None                                                ; -5.209 ns ; KEY[3]      ; control:ctrl|y_int_const[-17]           ; CLOCK_24[0] ;
+; N/A                                     ; None                                                ; -5.210 ns ; KEY[3]      ; control:ctrl|x_int_const[-20]           ; CLOCK_24[0] ;
+; N/A                                     ; None                                                ; -5.210 ns ; KEY[3]      ; control:ctrl|x_int_const[-28]           ; CLOCK_24[0] ;
+; N/A                                     ; None                                                ; -5.210 ns ; KEY[3]      ; control:ctrl|x_int_const[-27]           ; CLOCK_24[0] ;
+; N/A                                     ; None                                                ; -5.210 ns ; KEY[3]      ; control:ctrl|x_int_const[-26]           ; CLOCK_24[0] ;
+; N/A                                     ; None                                                ; -5.210 ns ; KEY[3]      ; control:ctrl|x_int_const[-25]           ; CLOCK_24[0] ;
+; N/A                                     ; None                                                ; -5.210 ns ; KEY[3]      ; control:ctrl|x_int_const[-22]           ; CLOCK_24[0] ;
+; N/A                                     ; None                                                ; -5.210 ns ; KEY[3]      ; control:ctrl|x_int_const[-21]           ; CLOCK_24[0] ;
+; N/A                                     ; None                                                ; -5.211 ns ; KEY[3]      ; control:ctrl|y_int_const[0]             ; CLOCK_24[0] ;
+; N/A                                     ; None                                                ; -5.211 ns ; KEY[3]      ; control:ctrl|y_int_const[2]             ; CLOCK_24[0] ;
+; N/A                                     ; None                                                ; -5.211 ns ; KEY[3]      ; control:ctrl|y_int_const[-4]            ; CLOCK_24[0] ;
+; N/A                                     ; None                                                ; -5.211 ns ; KEY[3]      ; control:ctrl|y_int_const[-3]            ; CLOCK_24[0] ;
+; N/A                                     ; None                                                ; -5.211 ns ; KEY[3]      ; control:ctrl|y_int_const[-2]            ; CLOCK_24[0] ;
+; N/A                                     ; None                                                ; -5.214 ns ; KEY[3]      ; memory_control:memCtrl|addr_read[6]     ; CLOCK_24[0] ;
+; N/A                                     ; None                                                ; -5.214 ns ; KEY[3]      ; memory_control:memCtrl|addr_read[7]     ; CLOCK_24[0] ;
+; N/A                                     ; None                                                ; -5.214 ns ; KEY[3]      ; memory_control:memCtrl|addr_read[8]     ; CLOCK_24[0] ;
+; N/A                                     ; None                                                ; -5.214 ns ; KEY[3]      ; memory_control:memCtrl|addr_read[9]     ; CLOCK_24[0] ;
+; N/A                                     ; None                                                ; -5.214 ns ; KEY[3]      ; memory_control:memCtrl|addr_read[10]    ; CLOCK_24[0] ;
+; N/A                                     ; None                                                ; -5.214 ns ; KEY[3]      ; memory_control:memCtrl|addr_read[11]    ; CLOCK_24[0] ;
+; N/A                                     ; None                                                ; -5.214 ns ; KEY[3]      ; memory_control:memCtrl|addr_read[12]    ; CLOCK_24[0] ;
+; N/A                                     ; None                                                ; -5.214 ns ; KEY[3]      ; memory_control:memCtrl|addr_read[13]    ; CLOCK_24[0] ;
+; N/A                                     ; None                                                ; -5.214 ns ; KEY[3]      ; memory_control:memCtrl|addr_read[14]    ; CLOCK_24[0] ;
+; N/A                                     ; None                                                ; -5.214 ns ; KEY[3]      ; memory_control:memCtrl|addr_read[15]    ; CLOCK_24[0] ;
+; N/A                                     ; None                                                ; -5.214 ns ; KEY[3]      ; memory_control:memCtrl|addr_read[16]    ; CLOCK_24[0] ;
+; N/A                                     ; None                                                ; -5.214 ns ; KEY[3]      ; memory_control:memCtrl|addr_read[17]    ; CLOCK_24[0] ;
+; N/A                                     ; None                                                ; -5.218 ns ; KEY[3]      ; control:ctrl|y_com_min[-5]              ; CLOCK_24[0] ;
+; N/A                                     ; None                                                ; -5.244 ns ; KEY[3]      ; control:ctrl|y_int_const[-32]           ; CLOCK_24[0] ;
+; N/A                                     ; None                                                ; -5.244 ns ; KEY[3]      ; control:ctrl|y_int_const[-28]           ; CLOCK_24[0] ;
+; N/A                                     ; None                                                ; -5.244 ns ; KEY[3]      ; control:ctrl|y_int_const[-27]           ; CLOCK_24[0] ;
+; N/A                                     ; None                                                ; -5.244 ns ; KEY[3]      ; control:ctrl|y_int_const[-26]           ; CLOCK_24[0] ;
+; N/A                                     ; None                                                ; -5.244 ns ; KEY[3]      ; control:ctrl|y_int_const[-24]           ; CLOCK_24[0] ;
+; N/A                                     ; None                                                ; -5.249 ns ; KEY[3]      ; control:ctrl|x_com_max[-15]             ; CLOCK_24[0] ;
+; N/A                                     ; None                                                ; -5.249 ns ; KEY[3]      ; control:ctrl|x_com_max[-14]             ; CLOCK_24[0] ;
+; N/A                                     ; None                                                ; -5.249 ns ; KEY[3]      ; control:ctrl|x_com_max[-13]             ; CLOCK_24[0] ;
+; N/A                                     ; None                                                ; -5.249 ns ; KEY[3]      ; control:ctrl|x_com_max[-16]             ; CLOCK_24[0] ;
+; N/A                                     ; None                                                ; -5.249 ns ; KEY[3]      ; control:ctrl|x_com_max[-17]             ; CLOCK_24[0] ;
+; N/A                                     ; None                                                ; -5.249 ns ; KEY[3]      ; control:ctrl|x_com_max[-18]             ; CLOCK_24[0] ;
+; N/A                                     ; None                                                ; -5.249 ns ; KEY[3]      ; control:ctrl|x_com_max[-19]             ; CLOCK_24[0] ;
+; N/A                                     ; None                                                ; -5.249 ns ; KEY[3]      ; control:ctrl|x_com_max[-20]             ; CLOCK_24[0] ;
+; N/A                                     ; None                                                ; -5.249 ns ; KEY[3]      ; control:ctrl|x_com_max[-21]             ; CLOCK_24[0] ;
+; N/A                                     ; None                                                ; -5.279 ns ; KEY[3]      ; control:ctrl|w_pixel[-26]               ; CLOCK_24[0] ;
+; N/A                                     ; None                                                ; -5.282 ns ; SRAM_DQ[13] ; memory_control:memCtrl|data_vga         ; CLOCK_24[0] ;
+; N/A                                     ; None                                                ; -5.283 ns ; SRAM_DQ[11] ; memory_control:memCtrl|data_vga         ; CLOCK_24[0] ;
+; N/A                                     ; None                                                ; -5.307 ns ; KEY[3]      ; control:ctrl|w_pixel[-28]               ; CLOCK_24[0] ;
+; N/A                                     ; None                                                ; -5.309 ns ; KEY[3]      ; control:ctrl|w_pixel[-30]               ; CLOCK_24[0] ;
+; N/A                                     ; None                                                ; -5.309 ns ; KEY[3]      ; control:ctrl|w_pixel[-25]               ; CLOCK_24[0] ;
+; N/A                                     ; None                                                ; -5.369 ns ; KEY[3]      ; control:ctrl|y_com_min[-15]             ; CLOCK_24[0] ;
+; Timing analysis restricted to 200 rows. ; To change the limit use Settings (Assignments menu) ;           ;             ;                                         ;             ;
++-----------------------------------------+-----------------------------------------------------+-----------+-------------+-----------------------------------------+-------------+
+
+
++--------------------------+
+; Timing Analyzer Messages ;
++--------------------------+
+Info: *******************************************************************
+Info: Running Quartus II Classic Timing Analyzer
+    Info: Version 9.1 Build 350 03/24/2010 Service Pack 2 SJ Web Edition
+    Info: Processing started: Wed Jun 24 20:23:33 2015
+Info: Command: quartus_tan --read_settings_files=off --write_settings_files=off fractal -c fractal --timing_analysis_only
+Warning: Found pins functioning as undefined clocks and/or memory enables
+    Info: Assuming node "CLOCK_24[0]" is an undefined clock
+Info: Clock "CLOCK_24[0]" has Internal fmax of 38.1 MHz between source register "mandelbrot:math|x[-28]" and destination register "mandelbrot:math|x[-32]" (period= 26.248 ns)
+    Info: + Longest register to register delay is 26.005 ns
+        Info: 1: + IC(0.000 ns) + CELL(0.000 ns) = 0.000 ns; Loc. = LCFF_X29_Y14_N21; Fanout = 193; REG Node = 'mandelbrot:math|x[-28]'
+        Info: 2: + IC(1.253 ns) + CELL(3.637 ns) = 4.890 ns; Loc. = DSPMULT_X28_Y12_N0; Fanout = 1; COMB Node = 'mandelbrot:math|lpm_mult:Mult0|mult_p1t:auto_generated|mac_mult5~DATAOUT4'
+        Info: 3: + IC(0.000 ns) + CELL(0.304 ns) = 5.194 ns; Loc. = DSPOUT_X28_Y12_N2; Fanout = 2; COMB Node = 'mandelbrot:math|lpm_mult:Mult0|mult_p1t:auto_generated|mac_out6~DATAOUT4'
+        Info: 4: + IC(1.441 ns) + CELL(0.517 ns) = 7.152 ns; Loc. = LCCOMB_X23_Y16_N18; Fanout = 2; COMB Node = 'mandelbrot:math|lpm_mult:Mult0|mult_p1t:auto_generated|add9_result[4]~9'
+        Info: 5: + IC(0.000 ns) + CELL(0.080 ns) = 7.232 ns; Loc. = LCCOMB_X23_Y16_N20; Fanout = 2; COMB Node = 'mandelbrot:math|lpm_mult:Mult0|mult_p1t:auto_generated|add9_result[5]~11'
+        Info: 6: + IC(0.000 ns) + CELL(0.080 ns) = 7.312 ns; Loc. = LCCOMB_X23_Y16_N22; Fanout = 2; COMB Node = 'mandelbrot:math|lpm_mult:Mult0|mult_p1t:auto_generated|add9_result[6]~13'
+        Info: 7: + IC(0.000 ns) + CELL(0.080 ns) = 7.392 ns; Loc. = LCCOMB_X23_Y16_N24; Fanout = 2; COMB Node = 'mandelbrot:math|lpm_mult:Mult0|mult_p1t:auto_generated|add9_result[7]~15'
+        Info: 8: + IC(0.000 ns) + CELL(0.080 ns) = 7.472 ns; Loc. = LCCOMB_X23_Y16_N26; Fanout = 2; COMB Node = 'mandelbrot:math|lpm_mult:Mult0|mult_p1t:auto_generated|add9_result[8]~17'
+        Info: 9: + IC(0.000 ns) + CELL(0.080 ns) = 7.552 ns; Loc. = LCCOMB_X23_Y16_N28; Fanout = 2; COMB Node = 'mandelbrot:math|lpm_mult:Mult0|mult_p1t:auto_generated|add9_result[9]~19'
+        Info: 10: + IC(0.000 ns) + CELL(0.161 ns) = 7.713 ns; Loc. = LCCOMB_X23_Y16_N30; Fanout = 2; COMB Node = 'mandelbrot:math|lpm_mult:Mult0|mult_p1t:auto_generated|add9_result[10]~21'
+        Info: 11: + IC(0.000 ns) + CELL(0.080 ns) = 7.793 ns; Loc. = LCCOMB_X23_Y15_N0; Fanout = 2; COMB Node = 'mandelbrot:math|lpm_mult:Mult0|mult_p1t:auto_generated|add9_result[11]~23'
+        Info: 12: + IC(0.000 ns) + CELL(0.080 ns) = 7.873 ns; Loc. = LCCOMB_X23_Y15_N2; Fanout = 2; COMB Node = 'mandelbrot:math|lpm_mult:Mult0|mult_p1t:auto_generated|add9_result[12]~25'
+        Info: 13: + IC(0.000 ns) + CELL(0.080 ns) = 7.953 ns; Loc. = LCCOMB_X23_Y15_N4; Fanout = 2; COMB Node = 'mandelbrot:math|lpm_mult:Mult0|mult_p1t:auto_generated|add9_result[13]~27'
+        Info: 14: + IC(0.000 ns) + CELL(0.080 ns) = 8.033 ns; Loc. = LCCOMB_X23_Y15_N6; Fanout = 2; COMB Node = 'mandelbrot:math|lpm_mult:Mult0|mult_p1t:auto_generated|add9_result[14]~29'
+        Info: 15: + IC(0.000 ns) + CELL(0.080 ns) = 8.113 ns; Loc. = LCCOMB_X23_Y15_N8; Fanout = 2; COMB Node = 'mandelbrot:math|lpm_mult:Mult0|mult_p1t:auto_generated|add9_result[15]~31'
+        Info: 16: + IC(0.000 ns) + CELL(0.080 ns) = 8.193 ns; Loc. = LCCOMB_X23_Y15_N10; Fanout = 2; COMB Node = 'mandelbrot:math|lpm_mult:Mult0|mult_p1t:auto_generated|add9_result[16]~33'
+        Info: 17: + IC(0.000 ns) + CELL(0.080 ns) = 8.273 ns; Loc. = LCCOMB_X23_Y15_N12; Fanout = 2; COMB Node = 'mandelbrot:math|lpm_mult:Mult0|mult_p1t:auto_generated|add9_result[17]~35'
+        Info: 18: + IC(0.000 ns) + CELL(0.174 ns) = 8.447 ns; Loc. = LCCOMB_X23_Y15_N14; Fanout = 2; COMB Node = 'mandelbrot:math|lpm_mult:Mult0|mult_p1t:auto_generated|add9_result[18]~37'
+        Info: 19: + IC(0.000 ns) + CELL(0.080 ns) = 8.527 ns; Loc. = LCCOMB_X23_Y15_N16; Fanout = 2; COMB Node = 'mandelbrot:math|lpm_mult:Mult0|mult_p1t:auto_generated|add9_result[19]~39'
+        Info: 20: + IC(0.000 ns) + CELL(0.080 ns) = 8.607 ns; Loc. = LCCOMB_X23_Y15_N18; Fanout = 2; COMB Node = 'mandelbrot:math|lpm_mult:Mult0|mult_p1t:auto_generated|add9_result[20]~41'
+        Info: 21: + IC(0.000 ns) + CELL(0.458 ns) = 9.065 ns; Loc. = LCCOMB_X23_Y15_N20; Fanout = 2; COMB Node = 'mandelbrot:math|lpm_mult:Mult0|mult_p1t:auto_generated|add9_result[21]~42'
+        Info: 22: + IC(0.823 ns) + CELL(0.517 ns) = 10.405 ns; Loc. = LCCOMB_X22_Y15_N20; Fanout = 2; COMB Node = 'mandelbrot:math|lpm_mult:Mult0|mult_p1t:auto_generated|op_1~43'
+        Info: 23: + IC(0.000 ns) + CELL(0.080 ns) = 10.485 ns; Loc. = LCCOMB_X22_Y15_N22; Fanout = 2; COMB Node = 'mandelbrot:math|lpm_mult:Mult0|mult_p1t:auto_generated|op_1~45'
+        Info: 24: + IC(0.000 ns) + CELL(0.080 ns) = 10.565 ns; Loc. = LCCOMB_X22_Y15_N24; Fanout = 2; COMB Node = 'mandelbrot:math|lpm_mult:Mult0|mult_p1t:auto_generated|op_1~47'
+        Info: 25: + IC(0.000 ns) + CELL(0.080 ns) = 10.645 ns; Loc. = LCCOMB_X22_Y15_N26; Fanout = 2; COMB Node = 'mandelbrot:math|lpm_mult:Mult0|mult_p1t:auto_generated|op_1~49'
+        Info: 26: + IC(0.000 ns) + CELL(0.080 ns) = 10.725 ns; Loc. = LCCOMB_X22_Y15_N28; Fanout = 2; COMB Node = 'mandelbrot:math|lpm_mult:Mult0|mult_p1t:auto_generated|op_1~51'
+        Info: 27: + IC(0.000 ns) + CELL(0.161 ns) = 10.886 ns; Loc. = LCCOMB_X22_Y15_N30; Fanout = 2; COMB Node = 'mandelbrot:math|lpm_mult:Mult0|mult_p1t:auto_generated|op_1~53'
+        Info: 28: + IC(0.000 ns) + CELL(0.080 ns) = 10.966 ns; Loc. = LCCOMB_X22_Y14_N0; Fanout = 2; COMB Node = 'mandelbrot:math|lpm_mult:Mult0|mult_p1t:auto_generated|op_1~55'
+        Info: 29: + IC(0.000 ns) + CELL(0.080 ns) = 11.046 ns; Loc. = LCCOMB_X22_Y14_N2; Fanout = 2; COMB Node = 'mandelbrot:math|lpm_mult:Mult0|mult_p1t:auto_generated|op_1~57'
+        Info: 30: + IC(0.000 ns) + CELL(0.080 ns) = 11.126 ns; Loc. = LCCOMB_X22_Y14_N4; Fanout = 2; COMB Node = 'mandelbrot:math|lpm_mult:Mult0|mult_p1t:auto_generated|op_1~59'
+        Info: 31: + IC(0.000 ns) + CELL(0.080 ns) = 11.206 ns; Loc. = LCCOMB_X22_Y14_N6; Fanout = 2; COMB Node = 'mandelbrot:math|lpm_mult:Mult0|mult_p1t:auto_generated|op_1~61'
+        Info: 32: + IC(0.000 ns) + CELL(0.080 ns) = 11.286 ns; Loc. = LCCOMB_X22_Y14_N8; Fanout = 2; COMB Node = 'mandelbrot:math|lpm_mult:Mult0|mult_p1t:auto_generated|op_1~63'
+        Info: 33: + IC(0.000 ns) + CELL(0.080 ns) = 11.366 ns; Loc. = LCCOMB_X22_Y14_N10; Fanout = 2; COMB Node = 'mandelbrot:math|lpm_mult:Mult0|mult_p1t:auto_generated|op_1~65'
+        Info: 34: + IC(0.000 ns) + CELL(0.080 ns) = 11.446 ns; Loc. = LCCOMB_X22_Y14_N12; Fanout = 2; COMB Node = 'mandelbrot:math|lpm_mult:Mult0|mult_p1t:auto_generated|op_1~67'
+        Info: 35: + IC(0.000 ns) + CELL(0.174 ns) = 11.620 ns; Loc. = LCCOMB_X22_Y14_N14; Fanout = 2; COMB Node = 'mandelbrot:math|lpm_mult:Mult0|mult_p1t:auto_generated|op_1~69'
+        Info: 36: + IC(0.000 ns) + CELL(0.080 ns) = 11.700 ns; Loc. = LCCOMB_X22_Y14_N16; Fanout = 2; COMB Node = 'mandelbrot:math|lpm_mult:Mult0|mult_p1t:auto_generated|op_1~71'
+        Info: 37: + IC(0.000 ns) + CELL(0.080 ns) = 11.780 ns; Loc. = LCCOMB_X22_Y14_N18; Fanout = 2; COMB Node = 'mandelbrot:math|lpm_mult:Mult0|mult_p1t:auto_generated|op_1~73'
+        Info: 38: + IC(0.000 ns) + CELL(0.080 ns) = 11.860 ns; Loc. = LCCOMB_X22_Y14_N20; Fanout = 2; COMB Node = 'mandelbrot:math|lpm_mult:Mult0|mult_p1t:auto_generated|op_1~75'
+        Info: 39: + IC(0.000 ns) + CELL(0.080 ns) = 11.940 ns; Loc. = LCCOMB_X22_Y14_N22; Fanout = 2; COMB Node = 'mandelbrot:math|lpm_mult:Mult0|mult_p1t:auto_generated|op_1~77'
+        Info: 40: + IC(0.000 ns) + CELL(0.080 ns) = 12.020 ns; Loc. = LCCOMB_X22_Y14_N24; Fanout = 2; COMB Node = 'mandelbrot:math|lpm_mult:Mult0|mult_p1t:auto_generated|op_1~79'
+        Info: 41: + IC(0.000 ns) + CELL(0.080 ns) = 12.100 ns; Loc. = LCCOMB_X22_Y14_N26; Fanout = 2; COMB Node = 'mandelbrot:math|lpm_mult:Mult0|mult_p1t:auto_generated|op_1~81'
+        Info: 42: + IC(0.000 ns) + CELL(0.080 ns) = 12.180 ns; Loc. = LCCOMB_X22_Y14_N28; Fanout = 2; COMB Node = 'mandelbrot:math|lpm_mult:Mult0|mult_p1t:auto_generated|op_1~83'
+        Info: 43: + IC(0.000 ns) + CELL(0.161 ns) = 12.341 ns; Loc. = LCCOMB_X22_Y14_N30; Fanout = 2; COMB Node = 'mandelbrot:math|lpm_mult:Mult0|mult_p1t:auto_generated|op_1~85'
+        Info: 44: + IC(0.000 ns) + CELL(0.080 ns) = 12.421 ns; Loc. = LCCOMB_X22_Y13_N0; Fanout = 2; COMB Node = 'mandelbrot:math|lpm_mult:Mult0|mult_p1t:auto_generated|op_1~87'
+        Info: 45: + IC(0.000 ns) + CELL(0.080 ns) = 12.501 ns; Loc. = LCCOMB_X22_Y13_N2; Fanout = 2; COMB Node = 'mandelbrot:math|lpm_mult:Mult0|mult_p1t:auto_generated|op_1~89'
+        Info: 46: + IC(0.000 ns) + CELL(0.080 ns) = 12.581 ns; Loc. = LCCOMB_X22_Y13_N4; Fanout = 2; COMB Node = 'mandelbrot:math|lpm_mult:Mult0|mult_p1t:auto_generated|op_1~91'
+        Info: 47: + IC(0.000 ns) + CELL(0.080 ns) = 12.661 ns; Loc. = LCCOMB_X22_Y13_N6; Fanout = 2; COMB Node = 'mandelbrot:math|lpm_mult:Mult0|mult_p1t:auto_generated|op_1~93'
+        Info: 48: + IC(0.000 ns) + CELL(0.080 ns) = 12.741 ns; Loc. = LCCOMB_X22_Y13_N8; Fanout = 2; COMB Node = 'mandelbrot:math|lpm_mult:Mult0|mult_p1t:auto_generated|op_1~95'
+        Info: 49: + IC(0.000 ns) + CELL(0.080 ns) = 12.821 ns; Loc. = LCCOMB_X22_Y13_N10; Fanout = 2; COMB Node = 'mandelbrot:math|lpm_mult:Mult0|mult_p1t:auto_generated|op_1~97'
+        Info: 50: + IC(0.000 ns) + CELL(0.080 ns) = 12.901 ns; Loc. = LCCOMB_X22_Y13_N12; Fanout = 2; COMB Node = 'mandelbrot:math|lpm_mult:Mult0|mult_p1t:auto_generated|op_1~99'
+        Info: 51: + IC(0.000 ns) + CELL(0.174 ns) = 13.075 ns; Loc. = LCCOMB_X22_Y13_N14; Fanout = 2; COMB Node = 'mandelbrot:math|lpm_mult:Mult0|mult_p1t:auto_generated|op_1~101'
+        Info: 52: + IC(0.000 ns) + CELL(0.458 ns) = 13.533 ns; Loc. = LCCOMB_X22_Y13_N16; Fanout = 2; COMB Node = 'mandelbrot:math|lpm_mult:Mult0|mult_p1t:auto_generated|op_1~102'
+        Info: 53: + IC(1.297 ns) + CELL(0.178 ns) = 15.008 ns; Loc. = LCCOMB_X26_Y14_N0; Fanout = 1; COMB Node = 'mandelbrot:math|Result~0'
+        Info: 54: + IC(0.294 ns) + CELL(0.178 ns) = 15.480 ns; Loc. = LCCOMB_X26_Y14_N10; Fanout = 35; COMB Node = 'mandelbrot:math|Result~1'
+        Info: 55: + IC(1.162 ns) + CELL(0.178 ns) = 16.820 ns; Loc. = LCCOMB_X25_Y13_N6; Fanout = 3; COMB Node = 'mandelbrot:math|Result~56'
+        Info: 56: + IC(1.034 ns) + CELL(0.517 ns) = 18.371 ns; Loc. = LCCOMB_X26_Y14_N28; Fanout = 2; COMB Node = 'mandelbrot:math|Add0~17'
+        Info: 57: + IC(0.000 ns) + CELL(0.161 ns) = 18.532 ns; Loc. = LCCOMB_X26_Y14_N30; Fanout = 2; COMB Node = 'mandelbrot:math|Add0~19'
+        Info: 58: + IC(0.000 ns) + CELL(0.458 ns) = 18.990 ns; Loc. = LCCOMB_X26_Y13_N0; Fanout = 2; COMB Node = 'mandelbrot:math|Add0~20'
+        Info: 59: + IC(0.896 ns) + CELL(0.595 ns) = 20.481 ns; Loc. = LCCOMB_X27_Y14_N30; Fanout = 2; COMB Node = 'mandelbrot:math|Add1~21'
+        Info: 60: + IC(0.000 ns) + CELL(0.080 ns) = 20.561 ns; Loc. = LCCOMB_X27_Y13_N0; Fanout = 2; COMB Node = 'mandelbrot:math|Add1~23'
+        Info: 61: + IC(0.000 ns) + CELL(0.080 ns) = 20.641 ns; Loc. = LCCOMB_X27_Y13_N2; Fanout = 2; COMB Node = 'mandelbrot:math|Add1~25'
+        Info: 62: + IC(0.000 ns) + CELL(0.080 ns) = 20.721 ns; Loc. = LCCOMB_X27_Y13_N4; Fanout = 2; COMB Node = 'mandelbrot:math|Add1~27'
+        Info: 63: + IC(0.000 ns) + CELL(0.080 ns) = 20.801 ns; Loc. = LCCOMB_X27_Y13_N6; Fanout = 2; COMB Node = 'mandelbrot:math|Add1~29'
+        Info: 64: + IC(0.000 ns) + CELL(0.080 ns) = 20.881 ns; Loc. = LCCOMB_X27_Y13_N8; Fanout = 2; COMB Node = 'mandelbrot:math|Add1~31'
+        Info: 65: + IC(0.000 ns) + CELL(0.080 ns) = 20.961 ns; Loc. = LCCOMB_X27_Y13_N10; Fanout = 2; COMB Node = 'mandelbrot:math|Add1~33'
+        Info: 66: + IC(0.000 ns) + CELL(0.080 ns) = 21.041 ns; Loc. = LCCOMB_X27_Y13_N12; Fanout = 2; COMB Node = 'mandelbrot:math|Add1~35'
+        Info: 67: + IC(0.000 ns) + CELL(0.174 ns) = 21.215 ns; Loc. = LCCOMB_X27_Y13_N14; Fanout = 2; COMB Node = 'mandelbrot:math|Add1~37'
+        Info: 68: + IC(0.000 ns) + CELL(0.080 ns) = 21.295 ns; Loc. = LCCOMB_X27_Y13_N16; Fanout = 2; COMB Node = 'mandelbrot:math|Add1~39'
+        Info: 69: + IC(0.000 ns) + CELL(0.080 ns) = 21.375 ns; Loc. = LCCOMB_X27_Y13_N18; Fanout = 2; COMB Node = 'mandelbrot:math|Add1~41'
+        Info: 70: + IC(0.000 ns) + CELL(0.080 ns) = 21.455 ns; Loc. = LCCOMB_X27_Y13_N20; Fanout = 2; COMB Node = 'mandelbrot:math|Add1~43'
+        Info: 71: + IC(0.000 ns) + CELL(0.080 ns) = 21.535 ns; Loc. = LCCOMB_X27_Y13_N22; Fanout = 2; COMB Node = 'mandelbrot:math|Add1~45'
+        Info: 72: + IC(0.000 ns) + CELL(0.080 ns) = 21.615 ns; Loc. = LCCOMB_X27_Y13_N24; Fanout = 2; COMB Node = 'mandelbrot:math|Add1~47'
+        Info: 73: + IC(0.000 ns) + CELL(0.080 ns) = 21.695 ns; Loc. = LCCOMB_X27_Y13_N26; Fanout = 2; COMB Node = 'mandelbrot:math|Add1~49'
+        Info: 74: + IC(0.000 ns) + CELL(0.080 ns) = 21.775 ns; Loc. = LCCOMB_X27_Y13_N28; Fanout = 2; COMB Node = 'mandelbrot:math|Add1~51'
+        Info: 75: + IC(0.000 ns) + CELL(0.161 ns) = 21.936 ns; Loc. = LCCOMB_X27_Y13_N30; Fanout = 2; COMB Node = 'mandelbrot:math|Add1~53'
+        Info: 76: + IC(0.000 ns) + CELL(0.080 ns) = 22.016 ns; Loc. = LCCOMB_X27_Y12_N0; Fanout = 2; COMB Node = 'mandelbrot:math|Add1~55'
+        Info: 77: + IC(0.000 ns) + CELL(0.080 ns) = 22.096 ns; Loc. = LCCOMB_X27_Y12_N2; Fanout = 2; COMB Node = 'mandelbrot:math|Add1~57'
+        Info: 78: + IC(0.000 ns) + CELL(0.080 ns) = 22.176 ns; Loc. = LCCOMB_X27_Y12_N4; Fanout = 2; COMB Node = 'mandelbrot:math|Add1~59'
+        Info: 79: + IC(0.000 ns) + CELL(0.080 ns) = 22.256 ns; Loc. = LCCOMB_X27_Y12_N6; Fanout = 2; COMB Node = 'mandelbrot:math|Add1~61'
+        Info: 80: + IC(0.000 ns) + CELL(0.080 ns) = 22.336 ns; Loc. = LCCOMB_X27_Y12_N8; Fanout = 2; COMB Node = 'mandelbrot:math|Add1~63'
+        Info: 81: + IC(0.000 ns) + CELL(0.080 ns) = 22.416 ns; Loc. = LCCOMB_X27_Y12_N10; Fanout = 2; COMB Node = 'mandelbrot:math|Add1~65'
+        Info: 82: + IC(0.000 ns) + CELL(0.080 ns) = 22.496 ns; Loc. = LCCOMB_X27_Y12_N12; Fanout = 2; COMB Node = 'mandelbrot:math|Add1~67'
+        Info: 83: + IC(0.000 ns) + CELL(0.174 ns) = 22.670 ns; Loc. = LCCOMB_X27_Y12_N14; Fanout = 2; COMB Node = 'mandelbrot:math|Add1~69'
+        Info: 84: + IC(0.000 ns) + CELL(0.458 ns) = 23.128 ns; Loc. = LCCOMB_X27_Y12_N16; Fanout = 35; COMB Node = 'mandelbrot:math|Add1~70'
+        Info: 85: + IC(1.278 ns) + CELL(0.521 ns) = 24.927 ns; Loc. = LCCOMB_X29_Y14_N8; Fanout = 1; COMB Node = 'mandelbrot:math|x[-32]~34'
+        Info: 86: + IC(0.804 ns) + CELL(0.178 ns) = 25.909 ns; Loc. = LCCOMB_X27_Y14_N8; Fanout = 1; COMB Node = 'mandelbrot:math|x[-32]~feeder'
+        Info: 87: + IC(0.000 ns) + CELL(0.096 ns) = 26.005 ns; Loc. = LCFF_X27_Y14_N9; Fanout = 217; REG Node = 'mandelbrot:math|x[-32]'
+        Info: Total cell delay = 15.723 ns ( 60.46 % )
+        Info: Total interconnect delay = 10.282 ns ( 39.54 % )
+    Info: - Smallest clock skew is -0.004 ns
+        Info: + Shortest clock path from clock "CLOCK_24[0]" to destination register is 2.851 ns
+            Info: 1: + IC(0.000 ns) + CELL(1.026 ns) = 1.026 ns; Loc. = PIN_B12; Fanout = 1; CLK Node = 'CLOCK_24[0]'
+            Info: 2: + IC(0.238 ns) + CELL(0.000 ns) = 1.264 ns; Loc. = CLKCTRL_G10; Fanout = 1010; COMB Node = 'CLOCK_24[0]~clkctrl'
+            Info: 3: + IC(0.985 ns) + CELL(0.602 ns) = 2.851 ns; Loc. = LCFF_X27_Y14_N9; Fanout = 217; REG Node = 'mandelbrot:math|x[-32]'
+            Info: Total cell delay = 1.628 ns ( 57.10 % )
+            Info: Total interconnect delay = 1.223 ns ( 42.90 % )
+        Info: - Longest clock path from clock "CLOCK_24[0]" to source register is 2.855 ns
+            Info: 1: + IC(0.000 ns) + CELL(1.026 ns) = 1.026 ns; Loc. = PIN_B12; Fanout = 1; CLK Node = 'CLOCK_24[0]'
+            Info: 2: + IC(0.238 ns) + CELL(0.000 ns) = 1.264 ns; Loc. = CLKCTRL_G10; Fanout = 1010; COMB Node = 'CLOCK_24[0]~clkctrl'
+            Info: 3: + IC(0.989 ns) + CELL(0.602 ns) = 2.855 ns; Loc. = LCFF_X29_Y14_N21; Fanout = 193; REG Node = 'mandelbrot:math|x[-28]'
+            Info: Total cell delay = 1.628 ns ( 57.02 % )
+            Info: Total interconnect delay = 1.227 ns ( 42.98 % )
+    Info: + Micro clock to output delay of source is 0.277 ns
+    Info: + Micro setup delay of destination is -0.038 ns
+Info: tsu for register "control:ctrl|x_com_max[-15]" (data pin = "KEY[3]", clock pin = "CLOCK_24[0]") is 8.427 ns
+    Info: + Longest pin to register delay is 11.307 ns
+        Info: 1: + IC(0.000 ns) + CELL(0.874 ns) = 0.874 ns; Loc. = PIN_T21; Fanout = 313; PIN Node = 'KEY[3]'
+        Info: 2: + IC(7.451 ns) + CELL(0.178 ns) = 8.503 ns; Loc. = LCCOMB_X19_Y17_N18; Fanout = 36; COMB Node = 'control:ctrl|x_com_max[-10]~2'
+        Info: 3: + IC(2.046 ns) + CELL(0.758 ns) = 11.307 ns; Loc. = LCFF_X18_Y18_N21; Fanout = 6; REG Node = 'control:ctrl|x_com_max[-15]'
+        Info: Total cell delay = 1.810 ns ( 16.01 % )
+        Info: Total interconnect delay = 9.497 ns ( 83.99 % )
+    Info: + Micro setup delay of destination is -0.038 ns
+    Info: - Shortest clock path from clock "CLOCK_24[0]" to destination register is 2.842 ns
+        Info: 1: + IC(0.000 ns) + CELL(1.026 ns) = 1.026 ns; Loc. = PIN_B12; Fanout = 1; CLK Node = 'CLOCK_24[0]'
+        Info: 2: + IC(0.238 ns) + CELL(0.000 ns) = 1.264 ns; Loc. = CLKCTRL_G10; Fanout = 1010; COMB Node = 'CLOCK_24[0]~clkctrl'
+        Info: 3: + IC(0.976 ns) + CELL(0.602 ns) = 2.842 ns; Loc. = LCFF_X18_Y18_N21; Fanout = 6; REG Node = 'control:ctrl|x_com_max[-15]'
+        Info: Total cell delay = 1.628 ns ( 57.28 % )
+        Info: Total interconnect delay = 1.214 ns ( 42.72 % )
+Info: tco from clock "CLOCK_24[0]" to destination pin "SRAM_ADDR[5]" through register "mandelbrot:math|done" is 12.088 ns
+    Info: + Longest clock path from clock "CLOCK_24[0]" to source register is 2.835 ns
+        Info: 1: + IC(0.000 ns) + CELL(1.026 ns) = 1.026 ns; Loc. = PIN_B12; Fanout = 1; CLK Node = 'CLOCK_24[0]'
+        Info: 2: + IC(0.238 ns) + CELL(0.000 ns) = 1.264 ns; Loc. = CLKCTRL_G10; Fanout = 1010; COMB Node = 'CLOCK_24[0]~clkctrl'
+        Info: 3: + IC(0.969 ns) + CELL(0.602 ns) = 2.835 ns; Loc. = LCFF_X27_Y19_N1; Fanout = 46; REG Node = 'mandelbrot:math|done'
+        Info: Total cell delay = 1.628 ns ( 57.43 % )
+        Info: Total interconnect delay = 1.207 ns ( 42.57 % )
+    Info: + Micro clock to output delay of source is 0.277 ns
+    Info: + Longest register to pin delay is 8.976 ns
+        Info: 1: + IC(0.000 ns) + CELL(0.000 ns) = 0.000 ns; Loc. = LCFF_X27_Y19_N1; Fanout = 46; REG Node = 'mandelbrot:math|done'
+        Info: 2: + IC(3.478 ns) + CELL(0.178 ns) = 3.656 ns; Loc. = LCCOMB_X13_Y11_N22; Fanout = 1; COMB Node = 'memory_control:memCtrl|addr_out[5]~5'
+        Info: 3: + IC(2.314 ns) + CELL(3.006 ns) = 8.976 ns; Loc. = PIN_AB10; Fanout = 0; PIN Node = 'SRAM_ADDR[5]'
+        Info: Total cell delay = 3.184 ns ( 35.47 % )
+        Info: Total interconnect delay = 5.792 ns ( 64.53 % )
+Info: th for register "control:ctrl|edge:detector3|old" (data pin = "KEY[0]", clock pin = "CLOCK_24[0]") is -3.963 ns
+    Info: + Longest clock path from clock "CLOCK_24[0]" to destination register is 2.849 ns
+        Info: 1: + IC(0.000 ns) + CELL(1.026 ns) = 1.026 ns; Loc. = PIN_B12; Fanout = 1; CLK Node = 'CLOCK_24[0]'
+        Info: 2: + IC(0.238 ns) + CELL(0.000 ns) = 1.264 ns; Loc. = CLKCTRL_G10; Fanout = 1010; COMB Node = 'CLOCK_24[0]~clkctrl'
+        Info: 3: + IC(0.983 ns) + CELL(0.602 ns) = 2.849 ns; Loc. = LCFF_X22_Y10_N25; Fanout = 1; REG Node = 'control:ctrl|edge:detector3|old'
+        Info: Total cell delay = 1.628 ns ( 57.14 % )
+        Info: Total interconnect delay = 1.221 ns ( 42.86 % )
+    Info: + Micro hold delay of destination is 0.286 ns
+    Info: - Shortest pin to register delay is 7.098 ns
+        Info: 1: + IC(0.000 ns) + CELL(0.864 ns) = 0.864 ns; Loc. = PIN_R22; Fanout = 2; PIN Node = 'KEY[0]'
+        Info: 2: + IC(5.961 ns) + CELL(0.177 ns) = 7.002 ns; Loc. = LCCOMB_X22_Y10_N24; Fanout = 1; COMB Node = 'control:ctrl|edge:detector3|old~0'
+        Info: 3: + IC(0.000 ns) + CELL(0.096 ns) = 7.098 ns; Loc. = LCFF_X22_Y10_N25; Fanout = 1; REG Node = 'control:ctrl|edge:detector3|old'
+        Info: Total cell delay = 1.137 ns ( 16.02 % )
+        Info: Total interconnect delay = 5.961 ns ( 83.98 % )
+Info: Quartus II Classic Timing Analyzer was successful. 0 errors, 1 warning
+    Info: Peak virtual memory: 181 megabytes
+    Info: Processing ended: Wed Jun 24 20:23:33 2015
+    Info: Elapsed time: 00:00:00
+    Info: Total CPU time (on all processors): 00:00:01
+
+
